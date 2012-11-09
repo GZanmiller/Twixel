@@ -1,3 +1,8 @@
+<?php
+  //this is our connection to the db
+  include('includes/mysql_connect.php');
+?>
+
 <!DOCTYPE html>
 
 <!-- USED FOUNDATION HTML5 FRONT-END FRAMEWORK -->
@@ -18,12 +23,13 @@
   <!-- IMPORT CSS -->
   
   <style type="text/css">
-  	@import url("css/foundation.min.css");
-	@import url("css/styles.css");
+    @import url("css/foundation.min.css");
+	  @import url("css/styles.css");
   </style>
   <link rel="icon" type="image/ico" href="favicon.ico" />
 
   <script src="js/modernizr.foundation.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -48,11 +54,7 @@
   </div>
   
   <!-- End Header and Nav -->
-    <?php
 
-
-
-  ?>
   <div class="row">    
     
     <!-- Main Feed -->
@@ -62,11 +64,165 @@
       <!-- Feed Entry -->
       <div class="row">
         <div class="ten columns">
-          <p>Here on the Admin Page you'll be able to manage the site with ease.</p>
-          <ul>
-            <li>Add and remove products</li>
-            <li>Add and remove product categories</li>
-            <li>Access customer profiles for customer support</li>
+          <ul class="tabs-content">
+
+            <li class="active" id="addProductTab">
+              <form action="insert.php" method="post">
+                <fieldset class="signup_fieldset">
+                  <h1>Add Item</h1>
+                </fieldset>
+              
+                <input type="text" name="name" maxlength="100" class="add_item_input" placeholder="Item Name" />
+                <input type="text" name="description" class="add_item_input" placeholder="Item Description" />
+
+                <select name="category" class="item_category">
+                  <option value="audio_recording">Audio Recording</option>
+                  <option value="design_software">Design Software</option>
+                  <option value="hardware">Hardware</option>
+                  <option value="plugin">Plugin</option>
+                  <option value="video_editing">Video Editing</option>
+                  <option value="web_development">Web Development</option>
+                  <option value="wordpress_themes">Wordpress Themes</option>
+                </select>
+
+                <input type="text" name="sku" class="add_item_input" placeholder="Sku" />
+                <input type="text" name="stock" class="add_item_input" placeholder="Stock" />
+                <input type="text" name="cost" class="add_item_input" placeholder="Cost" />
+                <input type="text" name="price" class="add_item_input" placeholder="Price" />
+                <input type="text" name="image" maxlength="100" class="add_item_input" placeholder="Image Location" />
+              
+                <input type="hidden" name="thumbs_up" value="0" />
+                <input type="hidden" name="thumbs_down" value="0" />
+                <input type="submit" name="Submit" value="Add Item" class="radius button" />
+              </form>
+            </li>
+
+
+
+            <li id="deleteProductTab">
+              <form action="delete.php" method="post" id="add_item_form">
+                <fieldset class="signup_fieldset">
+                  <h1>Delete Item</h1>
+                </fieldset>
+              
+                <select id="delete_select" name="product_id">
+                  <option value="">Select an Item</option>
+                  <?php 
+                    $dbhost = 'localhost';
+                    $dbuser = 'gr073607';
+                    $dbpass = 'knights123!';
+
+                    $conn = mysql_connect($dbhost, $dbuser, $dbpass);
+                    if(! $conn ){
+                      die('Could not connect: ' . mysql_error());
+                    }
+
+                    $sql = 'SELECT * FROM products';
+
+                    $retval = mysql_query( $sql, $conn );
+                    if(! $retval ){
+                      die('Could not get data: ' . mysql_error());
+                    }
+                    while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+                    {
+                        $id = $row['id'];
+                        $name = $row['name'];
+
+                        print "<option value='".$id."'>".$name."</option>";
+                    }
+                  ?>
+                </select>
+                  
+                <input type="submit" name="Submit" value="Delete Item" class="radius button" />
+              </form>
+            </li>
+
+
+
+            <li id="userAccountsTab">
+
+              <form action="select_user_update.php" method="post" id="add_item_form">
+                <fieldset class="signup_fieldset">
+                  <h1>User Accounts</h1>
+                </fieldset>
+                
+                <select name="selected_user" class="item_category" onchange="this.form.submit()">
+                  <option value="" selected="selected">Select a User</option>
+                  
+                  <?php 
+
+                    $sql = 'SELECT * FROM users';
+
+                    $retval = mysql_query( $sql, $conn );
+                    if(! $retval ){
+                      die('Could not get data: ' . mysql_error());
+                    }
+
+                    while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+                    {
+                        $id = $row['id'];
+                        $first_name_find = $row['first_name'];
+                        $last_name_find = $row['last_name'];
+
+                        print "<option value='".$id."''>".$first_name_find." ".$last_name_find."</option>";
+                    }
+                  ?>
+                </select>
+              </form>
+
+              <form action="update_user.php" method="post" id="edit_user_form">
+
+                <fieldset class="signup_fieldset">
+                  <h1>Edit User</h1>
+                </fieldset>
+              
+                <?php
+
+                  $selected_user = $_SESSION['selected_user_id'];
+
+                  $sql = "SELECT * FROM users WHERE id = '$selected_user' ";
+
+                  $retval = mysql_query( $sql, $conn );
+                  if(! $retval ){
+                    die('Could not get data: ' . mysql_error());
+                  }
+
+                  while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+                  {
+                      $id = $row['id'];
+                      $first_name_selected = $row['first_name'];
+                      $last_name_selected = $row['last_name'];
+                      $email_selected = $row['email'];
+                      $address_selected = $row['address'];
+                      $city_selected = $row['city'];
+                      $state_selected = $row['state'];
+                      $zip_selected = $row['zip'];
+
+                  }
+
+                   print " 
+                      <input type='hidden' name='id' value='".$id."' />
+                      <input type='text' name='first_name' maxlength='100' value='".$first_name_selected."' />
+                      <input type='text' name='last_name' value='".$last_name_selected."' />
+                      <input type='text' name='email' value='".$email_selected."' />
+                      <input type='text' name='address' value='".$address_selected."' />
+                      <input type='text' name='city'  value='".$city_selected."' />
+                      <input type='text' name='state' maxlength='100' value='".$state_selected."' />
+                      <input type='text' name='zip' maxlength='5' value='".$zip_selected."' />
+                    ";
+                ?>
+                  
+                <input type="submit" name="Submit" value="Update User" class="radius button" />
+              </form>
+
+              <form action="delete_user.php" method="post" id="delete_user_form">
+                <input type="submit" name="Submit" value="Delete User" class="radius button right" />
+              </form>
+            </li>
+
+            <li id="unprocessedOrdersTab">View Unprocessed Orders</li>
+
+            <li id="processedOrdersTab">View Processed Orders</li>
           </ul>
         </div>
       </div>
@@ -88,10 +244,11 @@
         <img src="img/admin.png" alt="admin" />
         
         <dl class="vertical tabs">
-          <dd><a href="#">Product Add/Delete (coming soon)</a></dd>
-          <dd><a href="#">Maintain User Accounts (coming soon)</a></dd>
-          <dd><a href="#">Unprocessed Orders (coming soon)</a></dd>
-          <dd><a href="#">Processed Orders (coming soon)</a></dd>
+          <dd class="active"><a href="#addProduct">Add Product</a></dd>
+          <dd><a href="#deleteProduct">Delete Product</a></dd>
+          <dd><a href="#userAccounts">Maintain User Accounts</a></dd>
+          <dd><a href="#unprocessedOrders">Unprocessed Orders</a></dd>
+          <dd><a href="#processedOrders">Processed Orders</a></dd>
         </dl>
         
       </div>

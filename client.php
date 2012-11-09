@@ -8,7 +8,7 @@
       <hr />
     </div>
     <div class="three columns">
-      <input class="search" type="search" placeholder="Search..." />
+      <?php include('includes/searchform.php'); ?>
     </div>
   </div>
 

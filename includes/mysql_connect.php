@@ -1,4 +1,7 @@
 <?php
+
+	session_start();
+
 	//Defines constants to use for our database connection
 	DEFINE ('DB_USER', 'gr073607');
 	DEFINE ('DB_PASSWORD', 'knights123!');
@@ -16,9 +19,6 @@
 		global $connection;
 		return mysqli_real_escape_string (trim ($data), $connection);
 	}*/
-
-	//starts our session
-	session_start();
 
 	//test connection
 	if(! $connection ){

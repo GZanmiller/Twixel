@@ -44,7 +44,6 @@ include('includes/mysql_connect.php');
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <!--  -->
   <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -65,13 +64,17 @@ include('includes/mysql_connect.php');
   <!-- Header and Nav -->
   
   <nav class="top-bar">
-    
-      <a class="logo three column" href="home.php" title="Twixel">
+    <div class="row">
+      <a class="logo two column" href="home.php" title="Twixel">
         <img src="img/logo-b.png" alt="Twixel"/>
       </a>
 
+      <div class="search_area six column">
+        <?php include('includes/searchform.php'); ?>
+      </div>
+
       <!-- Right Nav Section -->
-      <ul class="right">
+      <ul class="four column">
         <li><a href="home.php">Home</a></li>
         <li class="has-dropdown">
           <a href="catalog.php#adobePlugins">Products</a>
@@ -113,7 +116,7 @@ include('includes/mysql_connect.php');
         ?>
         <li><a href="cart.php">Cart (0)</a></li>
       </ul>
-      <div class="clear"></div>
+    </div>
   </nav>
 
   <div id="signin_form">

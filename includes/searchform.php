@@ -6,8 +6,8 @@
 --------------*/
 ?>
 
-<form method="post" action=""  id="searchform">
-      <input type="search" class="search" results="5" name="search" placeholder="Search..." />
+<form method="post" action="#"  id="searchform">
+      <input type="search" class="search" name="search" placeholder="Search..." />
 </form>
 
 <?php
