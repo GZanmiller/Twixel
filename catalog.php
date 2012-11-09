@@ -133,6 +133,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 
@@ -178,6 +183,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 
@@ -222,6 +232,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 
@@ -266,6 +281,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 
@@ -310,6 +330,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 
@@ -354,6 +379,11 @@
                   <div class='rating'>
                     <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
                     <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+
+                    <form action='individualProduct.php' method='post'>
+                      <input type='hidden' name='product_id' value='".$id."' />
+                      <input type='submit' name='submit' value='View Item' class='radius button' />
+                    </form>
                   </div>
                 </div>";
 

@@ -42,15 +42,24 @@
 
   <div class="row">
     <div class="eight columns">
-      <img src="http://placehold.it/1000x400&text=Product Image" />
+      <img src="<?php print $image; ?>" alt="<?php print $name; ?>" />
     </div>
     <div class="four columns panel">
-      <h2>$xxx.xx</h2>
+      <h2>Stock: <?php print $stock; ?></h2>
+      <h2>$<?php print $price; ?></h2>
       <a href="#">
       <div class="panel callout radius" align="center">
         <h4>Add to Cart</h4>
       </div>
       </a>
+      <?php
+      print "
+      <div class='rating'>
+        <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
+        <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
+      </div>
+      ";
+      ?>
     </div>
   </div>
 
@@ -58,9 +67,7 @@
     <div class="eight columns">
       <div class="row panel">
         <h2>Product Overview</h2>
-        <p>Bacon ipsum dolor sit amet qui proident mollit ham veniam, leberkas jerky t-bone et pariatur eu boudin ham hock. Pastrami short ribs nostrud sed biltong anim commodo. Pancetta doner shoulder pork belly fatback hamburger ullamco salami non strip steak exercitation enim. Et in fugiat pork chop do elit deserunt sint turducken culpa nisi cupidatat exercitation ham beef. In jowl bresaola, beef ribs tail sint ball tip. Capicola drumstick in id aliquip strip steak, kielbasa jowl reprehenderit ullamco.</p>
-        <p>Salami leberkas pig, beef ribs officia ea eiusmod id bresaola pancetta shank sunt aliquip prosciutto dolor. In pork chop excepteur eiusmod brisket. Magna irure ad biltong fugiat, rump chicken cillum non. Adipisicing excepteur short loin turkey beef turducken irure, short ribs biltong ham quis magna leberkas.</p>
-        <p>Meatball consequat salami ullamco drumstick nostrud beef short loin quis ut jerky cupidatat non doner duis. Meatloaf tri-tip aliquip cillum, t-bone magna shankle minim ea quis consectetur ground round. Quis velit excepteur non tempor exercitation. Flank bacon quis nostrud prosciutto.</p>
+        <p><?php print $description; ?></p>
       </div>
     </div>
   </div>
