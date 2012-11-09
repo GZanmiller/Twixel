@@ -13,7 +13,7 @@
   </div>
 
   <div class="row">
-    <div class="nine columns">
+    <div class="eight columns">
       <dl class="tabs">
         <dd class="active"><a href="#accountInfo">Account Information</a></dd>
         <dd><a href="#openOrders">Open Orders</a></dd>
@@ -41,30 +41,12 @@
         <li id="pastOrdersTab">You have yet to order anything from us. That makes everyone at Twixel super sad.</li>
       </ul>
     </div>
-    <div class="three columns">
-      <p>
-        <a href="#"><img src="http://lorempixel.com/400/280/technics/" alt="flareAd" /></a>
-      </p>
-      <p>
-        <a href="#"><img src="http://lorempixel.com/400/280/sports/" alt="particlesAd" /></a>
-      </p>
+    <!-- beginning of sidebar -->
+    <div class="four column">
+      <?php include "includes/sidebar.php"; ?>
     </div>
+    <!-- end of sidebar -->
   </div>
-  <div class="row">
-    <div class="panel">
-        <h4>Stay up to date!</h4>
-            
-        <div class="row">
-          <div class="nine columns">
-            <p>Sign-up for our email list to receive information about deals, coupons, and updates about Twixel. Max 4 emails per month.</p>
-          </div>
-          <div class="three columns">
-            <a href="#" class="radius button right">Sign-up</a>
-          </div>
-        </div>
-      </div>
-  </div>
-  
   
   <!-- Footer -->
   <?php include('footer.php') ?>
