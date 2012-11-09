@@ -4,13 +4,7 @@
     <div class="spacer"></div>
     <div class="row">
       <div class="twelve columns">
-        <h1>Home</h1>
-        <h2>Welcome to Twixel Creative and Media</h2>
-        <hr />
-      </div>
-    </div>
-    <div class="row">
-      <div class="twelve columns">
+        <h1>Welcome to Twixel Creative and Media</h1>
         <h3>This Month's Featured Plugins</h3>
       </div>
     </div>
@@ -39,6 +33,7 @@
             }
             mysql_close($conn);
           ?>
+          <hr />
         </div>
         
       </div>
@@ -95,7 +90,7 @@
           Hey Dev Team, what's up? Come by my office and say, "Hello."</p>
         <p><em>Posted: 21 Sept 2012 @ 13:31</em></p>
       </div>
-      
+      <hr />
     </div>
     
     

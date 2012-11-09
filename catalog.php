@@ -8,8 +8,7 @@
   <div class="row">
     <div class="nine columns">
       <h1>Products</h1>
-      <h2>Our Best Sellers</h2>
-      <hr />
+      <h3>Our Best Sellers</h3>
     </div>
     <div class="three columns">
       <?php include('includes/searchform.php'); ?>
