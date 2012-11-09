@@ -934,8 +934,15 @@ input[type=search] {
 .clear {
   clear:both;
 }
-
-
+#homeWelcome{
+  text-align: center;
+}
+#newsImage {
+  float: left;
+  padding-right: 3px;
+  height:40px;
+  width:40px;
+}
 @media only screen and (max-width: 940px){
   .top-bar ul.left > li, .top-bar ul.right > li {
     display: inline-block;
