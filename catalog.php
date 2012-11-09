@@ -1,4 +1,5 @@
 <?php 
+  $_SESSION['product_page'] = "view_project";
   include 'includes/header.php';
 ?>
 
@@ -6,12 +7,9 @@
   <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
   <div class="spacer"></div>
   <div class="row">
-    <div class="nine columns">
+    <div class="twelve columns">
       <h1>Products</h1>
       <h3>Our Best Sellers</h3>
-    </div>
-    <div class="three columns">
-      <?php include('includes/searchform.php'); ?>
     </div>
   </div>
   <div class="row">
@@ -79,15 +77,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -112,7 +105,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -130,15 +122,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -163,7 +150,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -181,15 +167,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -213,7 +194,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -231,15 +211,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -263,7 +238,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -281,15 +255,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -313,7 +282,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -331,15 +299,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -363,7 +326,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -381,15 +343,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -408,50 +365,3 @@
     
   <!-- Footer -->
   <?php include('footer.php') ?>
-  
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  
-  <script src="js/jquery.js"></script>
-  
-  <script src="js/jquery.foundation.mediaQueryToggle.js"></script>
-  
-  <script src="js/jquery.foundation.forms.js"></script>
-  
-  <script src="js/jquery.foundation.reveal.js"></script>
-  
-  <script src="js/jquery.foundation.orbit.js"></script>
-  
-  <script src="js/jquery.foundation.navigation.js"></script>
-  
-  <script src="js/jquery.foundation.buttons.js"></script>
-  
-  <script src="js/jquery.foundation.tabs.js"></script>
-  
-  <script src="js/jquery.foundation.tooltips.js"></script>
-  
-  <script src="js/jquery.foundation.accordion.js"></script>
-  
-  <script src="js/jquery.placeholder.js"></script>
-  
-  <script src="js/jquery.foundation.alerts.js"></script>
-  
-  <script src="js/jquery.foundation.topbar.js"></script>
-  
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="js/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="js/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
-  
-</body>
-</html>

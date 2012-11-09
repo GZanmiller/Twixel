@@ -1,210 +1,139 @@
-  <?php
+<?php 
+  include 'includes/header.php';
+
+$cart = $_SESSION['cart'];
+$action = $_GET['action'];
+switch ($action) {
+  case 'add':
+    if ($cart) {
+      $cart .= ','.$_GET['id'];
+    } else {
+      $cart = $_GET['id'];
+    }
+    break;
+  case 'delete':
+    if ($cart) {
+      $items = explode(',',$cart);
+      $newcart = '';
+      foreach ($items as $item) {
+        if ($_GET['id'] != $item) {
+          if ($newcart != '') {
+            $newcart .= ','.$item;
+          } else {
+            $newcart = $item;
+          }
+        }
+      }
+      $cart = $newcart;
+    }
+    break;
+  case 'update':
+  if ($cart) {
+    $newcart = '';
+    foreach ($_POST as $key=>$value) {
+      if (stristr($key,'qty')) {
+        $id = str_replace('qty','',$key);
+        $items = ($newcart != '') ? explode(',',$newcart) : explode(',',$cart);
+        $newcart = '';
+        foreach ($items as $item) {
+          if ($id != $item) {
+            if ($newcart != '') {
+              $newcart .= ','.$item;
+            } else {
+              $newcart = $item;
+            }
+          }
+        }
+        for ($i=1;$i<=$value;$i++) {
+          if ($newcart != '') {
+            $newcart .= ','.$id;
+          } else {
+            $newcart = $id;
+          }
+        }
+      }
+    }
+  }
+  $cart = $newcart;
+  break;
+}
+$_SESSION['cart'] = $cart;
 
 
+?>
 
-  ?>
-<!DOCTYPE html>
-
-<!-- USED FOUNDATION HTML5 FRONT-END FRAMEWORK -->
-
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
-
-  <title>Twixel Cart - Zachary Spear</title>
-  
-  <!-- IMPORT CSS -->
-  
-  <style type="text/css">
-  	@import url("css/foundation.min.css");
-	@import url("css/styles.css");
-  </style>
-  <link rel="icon" type="image/ico" href="favicon.ico" />
-
-  <script src="js/modernizr.foundation.js"></script>
-
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-</head>
-<body>
-  
-  <!-- Header and Nav -->
-  
-  <nav class="top-bar contain-to-grid">
-    
-    <ul>
-      <!-- Title Area -->
-      <li>
-      	<a href="home.php"><img src="img/logo.svg" alt="logo" height="40" width="40" /></a>
-      </li>
-      <li class="name">
-      	
-        <h1>
-          <a href="home.php">
-            Twixel
-          </a>
-        </h1>
-      </li>
-    </ul>
-
-    <section>
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="divider"></li>
-        <li><a href="home.php">Home</a></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="catalog.php#adobePlugins">Products</a>
-          <ul class="dropdown">
-            <li><a href="catalog.php#adobePlugins">Adobe Plugins</a></li>
-            <li><a href="catalog.php#adobeSoftware">Adobe Software</a></li>
-            <li><a href="catalog.php#mayaPlugins">Maya Plugins</a></li>
-            <li><a href="catalog.php#wordPressThemes">WordPress Themes</a></li>
-            <li><a href="catalog.php#webAssets">Web Assets</a></li>
-            <li><a href="catalog.php#sonySoftware">Sony Software</a></li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="client.php">Account</a>
-          <ul class="dropdown">
-            <li><a href="client.php">Account Information</a></li>
-            <li><a href="client.php#openOrders">Open Orders</a></li>
-            <li><a href="client.php#pastOrders">Past Orders</a></li>
-          </ul>
-        <li class="divider"></li>
-        <li><a href="cart.php">Cart (0)</a></li>
-      </ul>
-    </section>
-  </nav>
-  
-  <!-- End Header and Nav -->
-  <?php
-
-
-
-  ?>
-  <!-- First Band (Slider) -->
-  <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
-
+  <div class="spacer"></div>
   <div class="row">
-    <div class="nine columns">
+    <div class="twelve columns">
       <h1>Shopping Cart</h1>
       <hr />
     </div>
-    <div class="three columns">
-      <input class="search" type="search" placeholder="Search..." />
-    </div>
   </div>
     
   <div class="row">
-    <div class="nine columns">
-      <h4>Your Shopping Cart is empty</h4>
-      <p>Your Shopping Cart is here anytime you need it. Why not fill it with some of our awesome products.
-      <p>Head over to our <a href="catalog.php">Products Page</a> and make it so your shopping cart isn't lonely.</p>
-      <a href="checkout.php" class="radius button right">Checkout</a>
-    </div>
-    <div class="three columns">
-      <p>
-        <a href="#"><img src="http://lorempixel.com/400/280/fashion/" alt="flareAd" /></a>
-      </p>
-      <p>
-        <a href="#"><img src="http://lorempixel.com/400/280/sports/" alt="particlesAd" /></a>
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="panel">
-        <h4>Stay up to date!</h4>
+      <div class="eight column">
+        <div class="entry">
+          <h3>Your Cart</h3>
+          <br/>
+          <p>Remove items from your cart or Check Out.</p>
+          
+          <?php
+
+          echo showCart();
+
+          /*$total = 0;
+          $output[] = '<form action="cart.php?action=update" method="post" id="cart">';
+          $output[] = '<table>';
+
+          foreach ($contents as $id=>$qty) {
+            $sql = "SELECT * FROM products WHERE id = '$id'";
+            $result = mysql_query( $sql, $connection );
+
+            $row = mysql_fetch_array($result, MYSQL_ASSOC);
+            extract($row);
+
+            //var_dump($result);
+            //if($result) echo 'There are Items here';
+            //else echo 'No Items';
             
-        <div class="row">
-          <div class="nine columns">
-            <p>Sign-up for our email list to receive information about deals, coupons, and updates about Twixel. Max 4 emails per month.</p>
-          </div>
-          <div class="three columns">
-            <a href="#" class="radius button right">Sign-up</a>
-          </div>
+             $name = $row['name'];
+             $price = $row['price'];
+
+            $output[] = '<tr>';
+            $output[] = '<td><a href="cart.php?action=delete&id='.$id.'" class="r">Remove</a></td>';
+            $output[] = '<td>'.$name.'</td>';
+            $output[] = '<td>&#36;'.$price.'</td>';
+            $output[] = '<td><input type="text" name="qty'.$id.'" value="'.$qty.'" size="3" maxlength="3" /></td>';
+            $output[] = '<td>&#36;'.($price * $qty).'</td>';
+            $total += $price * $qty;
+            $output[] = '</tr>';
+          }
+          $output[] = '</table>';
+          $output[] = '<p>Grand total: &#36;'.$total.'</p>';
+          $output[] = '<div><button type="submit">Update cart</button></div>';
+          $output[] = '</form>';
+          print_r($output);*/
+
+          ?>
+
+
+
+          <br />
+          <p>
+            <a class="feature-buy" href="pay.php" title="">Check Out</a> or
+            <a href="catalog.php" title="">Continue Shopping</a>
+          </p>
+
+
         </div>
+        </div>
+    <!-- beginning of sidebar -->
+      <div class="four column">
+
+        <?php include "includes/sidebar.php"; ?>
+
       </div>
   </div>
-  
   
   <!-- Footer -->
-  
-  <footer class="row">
-    <div class="twelve columns">
-      <hr />
-      <div class="row">
-        <div class="six columns">
-          <p>This site is not official and is an assignment for a UCF Digital Media course
-            <br />Designed By: Zachary Spear</p>
-        </div>
-        <div class="six columns">
-          <ul class="link-list right">
-            <li><a href="home.php">Home</a></li>
-            <li><a href="catalog.php">Products</a></li>
-            <li><a href="client.php">Account</a></li>
-            <li><a href="cart.php">Cart (0)</a></li>
-            <li><a href="contact.php">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-  </footer>
-  
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  
-  <script src="js/jquery.js"></script>
-  
-  <script src="js/jquery.foundation.mediaQueryToggle.js"></script>
-  
-  <script src="js/jquery.foundation.forms.js"></script>
-  
-  <script src="js/jquery.foundation.reveal.js"></script>
-  
-  <script src="js/jquery.foundation.orbit.js"></script>
-  
-  <script src="js/jquery.foundation.navigation.js"></script>
-  
-  <script src="js/jquery.foundation.buttons.js"></script>
-  
-  <script src="js/jquery.foundation.tabs.js"></script>
-  
-  <script src="js/jquery.foundation.tooltips.js"></script>
-  
-  <script src="js/jquery.foundation.accordion.js"></script>
-  
-  <script src="js/jquery.placeholder.js"></script>
-  
-  <script src="js/jquery.foundation.alerts.js"></script>
-  
-  <script src="js/jquery.foundation.topbar.js"></script>
-  
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="js/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="js/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
-  
-</body>
-</html>
+  <?php include('footer.php') ?>

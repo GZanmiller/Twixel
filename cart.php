@@ -1,5 +1,65 @@
 <?php 
   include 'includes/header.php';
+
+$cart = $_SESSION['cart'];
+$action = $_GET['action'];
+switch ($action) {
+  case 'add':
+    if ($cart) {
+      $cart .= ','.$_GET['id'];
+    } else {
+      $cart = $_GET['id'];
+    }
+    break;
+  case 'delete':
+    if ($cart) {
+      $items = explode(',',$cart);
+      $newcart = '';
+      foreach ($items as $item) {
+        if ($_GET['id'] != $item) {
+          if ($newcart != '') {
+            $newcart .= ','.$item;
+          } else {
+            $newcart = $item;
+          }
+        }
+      }
+      $cart = $newcart;
+    }
+    break;
+  case 'update':
+  if ($cart) {
+    $newcart = '';
+    foreach ($_POST as $key=>$value) {
+      if (stristr($key,'qty')) {
+        $id = str_replace('qty','',$key);
+        $items = ($newcart != '') ? explode(',',$newcart) : explode(',',$cart);
+        $newcart = '';
+        foreach ($items as $item) {
+          if ($id != $item) {
+            if ($newcart != '') {
+              $newcart .= ','.$item;
+            } else {
+              $newcart = $item;
+            }
+          }
+        }
+        for ($i=1;$i<=$value;$i++) {
+          if ($newcart != '') {
+            $newcart .= ','.$id;
+          } else {
+            $newcart = $id;
+          }
+        }
+      }
+    }
+  }
+  $cart = $newcart;
+  break;
+}
+$_SESSION['cart'] = $cart;
+
+
 ?>
 
   <div class="spacer"></div>
@@ -17,26 +77,47 @@
           <br/>
           <p>Remove items from your cart or Check Out.</p>
           
-          <table>
-            <tr>
-              <td class="title">Name</td>
-              <td class="title">Author</td>
-              <td class="title">Price</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>TRIM</td>
-              <td>ElegantThemes</td>
-              <td>$9</td>
-              <td><a href="" title=""><span>&nbsp;-&nbsp;</span>Remove</a></td>
-            </tr>
-            <tr>
-              <td>MyProduct</td>
-              <td>ElegantThemes</td>
-              <td>$9</td>
-              <td><a href="" title=""><span>&nbsp;-&nbsp;</span>Remove</a></td>
-            </tr>
-          </table>
+          <?php
+
+          echo showCart();
+
+          /*$total = 0;
+          $output[] = '<form action="cart.php?action=update" method="post" id="cart">';
+          $output[] = '<table>';
+
+          foreach ($contents as $id=>$qty) {
+            $sql = "SELECT * FROM products WHERE id = '$id'";
+            $result = mysql_query( $sql, $connection );
+
+            $row = mysql_fetch_array($result, MYSQL_ASSOC);
+            extract($row);
+
+            //var_dump($result);
+            //if($result) echo 'There are Items here';
+            //else echo 'No Items';
+            
+             $name = $row['name'];
+             $price = $row['price'];
+
+            $output[] = '<tr>';
+            $output[] = '<td><a href="cart.php?action=delete&id='.$id.'" class="r">Remove</a></td>';
+            $output[] = '<td>'.$name.'</td>';
+            $output[] = '<td>&#36;'.$price.'</td>';
+            $output[] = '<td><input type="text" name="qty'.$id.'" value="'.$qty.'" size="3" maxlength="3" /></td>';
+            $output[] = '<td>&#36;'.($price * $qty).'</td>';
+            $total += $price * $qty;
+            $output[] = '</tr>';
+          }
+          $output[] = '</table>';
+          $output[] = '<p>Grand total: &#36;'.$total.'</p>';
+          $output[] = '<div><button type="submit">Update cart</button></div>';
+          $output[] = '</form>';
+          print_r($output);*/
+
+          ?>
+
+
+
           <br />
           <p>
             <a class="feature-buy" href="pay.php" title="">Check Out</a> or
@@ -56,50 +137,3 @@
   
   <!-- Footer -->
   <?php include('footer.php') ?>
-  
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  
-  <script src="js/jquery.js"></script>
-  
-  <script src="js/jquery.foundation.mediaQueryToggle.js"></script>
-  
-  <script src="js/jquery.foundation.forms.js"></script>
-  
-  <script src="js/jquery.foundation.reveal.js"></script>
-  
-  <script src="js/jquery.foundation.orbit.js"></script>
-  
-  <script src="js/jquery.foundation.navigation.js"></script>
-  
-  <script src="js/jquery.foundation.buttons.js"></script>
-  
-  <script src="js/jquery.foundation.tabs.js"></script>
-  
-  <script src="js/jquery.foundation.tooltips.js"></script>
-  
-  <script src="js/jquery.foundation.accordion.js"></script>
-  
-  <script src="js/jquery.placeholder.js"></script>
-  
-  <script src="js/jquery.foundation.alerts.js"></script>
-  
-  <script src="js/jquery.foundation.topbar.js"></script>
-  
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="js/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="js/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
-  
-</body>
-</html>
