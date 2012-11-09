@@ -1,5 +1,6 @@
 <?php 
   include 'includes/header.php';
+  include 'includes/mysql_connect.php';
 ?>
   <div class="spacer"></div>
   <!-- First Band (Slider) -->
@@ -13,49 +14,54 @@
       
     </div>
   </div>
-    
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">First Name</label></div>
-      <div class="ten columns"><input type="text" id="firstName" placeholder="Enoch" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">Last Name</label></div>
-      <div class="ten columns"><input type="text" id="lastName" placeholder="Thompson" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">Email</label></div>
-      <div class="ten columns"><input type="text" id="email" placeholder="nucky@bootleger.org" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">Address</label></div>
-      <div class="ten columns"><input type="text" id="address" placeholder="27 Boardwalk Avenue" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">City</label></div>
-      <div class="ten columns"><input type="text" id="city" placeholder="Atlantic City" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">State</label></div>
-      <div class="ten columns"><input type="text" id="state" placeholder="New Jersey" /></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="nine columns">
-      <div class="two columns"><label class="inline">Zip Code</label></div>
-      <div class="ten columns"><input type="text" id="zipCode" placeholder="08401" /></div>
-    </div>
-  </div>
+  <?php
+    if($_SESSION['logged_in'] == "yes")
+    {
+        print "
+            <div class='four columns'></div>
+            <div class='four columns'>
+              <h4>".$first_name." ".$last_name."</h4>
+              <h4>".$email."</h4>
+              <h4>".$address."</h4>
+              <h4>".$city." ".$state." ".$zip."</h4>
+            </div>
+            <div class='four columns'></div>";
+    }
+    else 
+    {
+  ?>
+      <div class="row">
+      <div class="nine columns">
+        <form href="paypal.com" method="post">
+            <label>First Name</label>
+            <input type="text" id="firstName" placeholder="Enoch" />
+            
+            <label>Last Name</label>
+            <input type="text" id="lastName" placeholder="Thompson" />
+           
+            <label>Email</label>
+            <input type="text" id="email" placeholder="nucky@bootleger.org" />
+            
+            <label>Address</label>
+            <input type="text" id="address" placeholder="27 Boardwalk Avenue" />
+            
+            <label>City</label>
+            <input type="text" id="city" placeholder="Atlantic City" />
+            
+            <label>State</label>
+            <input type="text" id="state" placeholder="New Jersey" />
+            
+            <label>Zip Code</label>
+            <input type="text" id="zipCode" placeholder="08401" />
+            
+            <input type="submit" value="Checkout" name="submit" class="radius button" />
+          </form>
+        </div>
+        <div class="three columns"></div>
+      </div>
+  <?php
+    }
+  ?>
 
   <div class="row">
     <div class="nine columns">

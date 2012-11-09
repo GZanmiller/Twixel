@@ -6,7 +6,6 @@ session_start();
 *
 --------------*/
 //this is our connection to the db
-include('includes/mysql_connect.php');
 include('includes/functions.php');
 
 ?>

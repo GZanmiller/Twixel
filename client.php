@@ -1,5 +1,6 @@
 <?php 
   include 'includes/header.php';
+  include 'includes/mysql_connect';
 ?>
   <div class="spacer"></div>
   <div class="row">

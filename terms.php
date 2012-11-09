@@ -1,5 +1,6 @@
 <?php 
   include 'includes/header.php';
+  include 'includes/mysql_connect.php';
 ?>
   <div class="spacer"></div>
   <div class="row">
@@ -24,6 +25,7 @@
       <p class="policy_body">
         All your products will be personally guarded by our security guard Bubba. He will make sure your packages are safe and secure throughout their whole trip. No one makes Bubba angry.
       </p>
+    </div>
   </div>
   
   <!-- Footer -->

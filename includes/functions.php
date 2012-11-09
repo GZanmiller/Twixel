@@ -14,7 +14,7 @@ return $numItems;
 }
 
 function showCart() {
-                  include("mysql_connect.php");
+            include("mysql_connect.php");
             $cart = $_SESSION['cart'];
             
             if ($cart) {

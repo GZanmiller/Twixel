@@ -1,6 +1,7 @@
 <?php 
   $_SESSION['product_page'] = "view_project";
   include 'includes/header.php';
+  include 'includes/mysql_connect.php';
 ?>
 
   <!-- First Band (Slider) -->

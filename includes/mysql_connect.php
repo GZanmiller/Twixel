@@ -28,7 +28,7 @@
 	//choose database
 	$db_selected = mysql_select_db(DB_NAME);
 
-	/*if($_SESSION['logged_in'] == "yes" && $_SESSION['email'] == "admin@twixel.com")
+	if($_SESSION['logged_in'] == "yes" && $_SESSION['email'] == "admin@twixel.com")
 	{
 		$first_name = "Twixel";
 		$last_name = "Admin";
@@ -73,5 +73,5 @@
 		return $pageName;
 	}
 
-	$pageName = get_pageName();*/
+	$pageName = get_pageName();
 ?>

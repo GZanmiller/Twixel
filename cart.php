@@ -1,5 +1,6 @@
 <?php 
   include 'includes/header.php';
+  include 'mysql_connect.php';
 
 $cart = $_SESSION['cart'];
 $action = $_GET['action'];
@@ -120,7 +121,7 @@ $_SESSION['cart'] = $cart;
 
           <br />
           <p>
-            <a class="feature-buy" href="pay.php" title="">Check Out</a> or
+            <a class="feature-buy" href="checkout.php" title="">Check Out</a> or
             <a href="catalog.php" title="">Continue Shopping</a>
           </p>
 

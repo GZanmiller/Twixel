@@ -219,10 +219,6 @@
                 <input type="submit" name="Submit" value="Delete User" class="radius button right" />
               </form>
             </li>
-
-            <li id="unprocessedOrdersTab">View Unprocessed Orders</li>
-
-            <li id="processedOrdersTab">View Processed Orders</li>
           </ul>
         </div>
       </div>
@@ -247,8 +243,6 @@
           <dd class="active"><a href="#addProduct">Add Product</a></dd>
           <dd><a href="#deleteProduct">Delete Product</a></dd>
           <dd><a href="#userAccounts">Maintain User Accounts</a></dd>
-          <dd><a href="#unprocessedOrders">Unprocessed Orders</a></dd>
-          <dd><a href="#processedOrders">Processed Orders</a></dd>
         </dl>
         
       </div>

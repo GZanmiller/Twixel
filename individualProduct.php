@@ -1,5 +1,5 @@
 <?php
-  
+  include 'includes/mysql_connect.php';
   include 'includes/header.php';
 
   $reason_for_visiting = $_SESSION['product_page'];
@@ -53,11 +53,14 @@
 <!-- End Header and Nav -->
 <div class="spacer"></div>
 <div class="row">
-  <h1><?php print $name; ?></h1>
+  <div class="two columns"></div>
+  <div class="two columns"><h1><?php print $name; ?></h1></div>
+  <div class="eight columns"></div>
 </div>
 
 <div class="row">
-  <div class="eight columns">
+  <div class="two columns"></div>
+  <div class="four columns">
     <?php print "<img src='".$image."' alt='".$name."' /> "; ?>
   </div>
   <div class="four columns panel">
@@ -68,18 +71,22 @@
       <a class="added" href="cart.php?action=add&id=<?php echo $product_id; ?> ">Add to Cart</a>
     </div>
   </div>
+  <div class="two column"></div>
 </div>
 
 <div class="row">
-  <div class="twelve columns">
+  <div class="two columns"></div>
+  <div class="eight columns">
     <div class="row panel">
       <h2>Product Overview</h2>
       <p><?php print $description; ?></p>
     </div>
   </div>
+  <div class="two columns"></div>
 </div>
 <div class="row">
-  <div class="twelve columns">
+  <div class="two columns"></div>
+  <div class="eight columns">
     <h2>Product Reviews</h2>
 
     <form action="add_review.php" method="post" accept-charset="utf-8">
@@ -99,15 +106,20 @@
           <input type="radio" name="rating" value="1" /> 1
         </p>
         <p>
-          <input type="submit" value="Submit Review">
+          <input type="submit" class="radius button" value="Submit Review">
         </p>
       </fieldset>
     </form>
-
+  </div>
+  <div class="two columns"></div>
+</div>
+<div class="row">
+  <div class="two columns"></div>
+  <div class="eight columns">
     <?php
 
       $sql = "SELECT * FROM product_reviews WHERE product_id = '$id' ";
-      $retval = mysql_query( $sql, $conn );
+      $retval = mysql_query( $sql, $connection );
 
       if(! $retval ){
         die('Could not get data: ' . mysql_error());
@@ -145,6 +157,7 @@
       }
     ?>
   </div>
+  <div class="two columns"></div>
 </div>
 <!-- Footer -->
 <?php include('footer.php') ?>
