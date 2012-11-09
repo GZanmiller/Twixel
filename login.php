@@ -61,18 +61,3 @@
 
 <!-- Footer -->
   <?php include('footer.php') ?>
-
-  <script src="js/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="js/app.js"></script>
-
-  <script type="text/javascript">
-     $(window).load(function() {
-         $('#slider').orbit();
-     });
-  </script>
-  
-</body>
-</html>
