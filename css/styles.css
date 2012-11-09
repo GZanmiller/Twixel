@@ -270,9 +270,9 @@
 
 /* font-face */
 @font-face {
-  font-family: "GeneralEnclosedFoundicons";
-  src: url("icons/general_enclosed_foundicons.eot");
-  src: url("icons/general_enclosed_foundicons.eot?#iefix") format("embedded-opentype"), url("icons//general_enclosed_foundicons.woff") format("woff"), url("icons/general_enclosed_foundicons.ttf") format("truetype"), url("icons/general_enclosed_foundicons.svg#GeneralEnclosedFoundicons") format("svg");
+  font-family: "GeneralFoundicons";
+  src: url("icons/general_foundicons.eot");
+  src: url("icons/general_foundicons.eot?#iefix") format("embedded-opentype"), url("icons/general_foundicons.woff") format("woff"), url("fonts/general_foundicons.ttf") format("truetype"), url("fonts/general_foundicons.svg#GeneralFoundicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -290,7 +290,7 @@
 }
 
 [class*="foundicon-"]:before {
-  font-family: "GeneralEnclosedFoundicons";
+  font-family: "GeneralFoundicons";
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
@@ -826,7 +826,7 @@ input[type=search] {
 
 .spacer {
   float:right;
-  height:105px;
+  height:125px;
   width:100%;
 }
 
@@ -868,7 +868,6 @@ input[type=search] {
 }
 
 #signup_form {
-  visibility: hidden;
   margin: auto;
   width:400px;
   padding:5px 20px 10px 10px;

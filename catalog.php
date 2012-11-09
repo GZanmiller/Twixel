@@ -1,4 +1,5 @@
 <?php 
+  $_SESSION['product_page'] = "view_project";
   include 'includes/header.php';
 ?>
 
@@ -6,12 +7,9 @@
   <!-- The Orbit slider is initialized at the bottom of the page by calling .orbit() on #slider -->
   <div class="spacer"></div>
   <div class="row">
-    <div class="nine columns">
+    <div class="twelve columns">
       <h1>Products</h1>
       <h3>Our Best Sellers</h3>
-    </div>
-    <div class="three columns">
-      <?php include('includes/searchform.php'); ?>
     </div>
   </div>
   <div class="row">
@@ -79,15 +77,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -129,15 +122,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -179,15 +167,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -228,15 +211,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -277,15 +255,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -326,15 +299,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;
@@ -375,15 +343,10 @@
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
-                  <div class='rating'>
-                    <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-                    <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-
-                    <form action='individualProduct.php' method='post'>
-                      <input type='hidden' name='product_id' value='".$id."' />
-                      <input type='submit' name='submit' value='View Item' class='radius button' />
-                    </form>
-                  </div>
+                  <form action='individualProduct.php' method='post'>
+                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='submit' name='submit' value='View Item' class='radius button' />
+                  </form>
                 </div>";
 
               $counter++;

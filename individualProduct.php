@@ -19,6 +19,7 @@
   if($reason_for_visiting == "view_product")
   {
     $product_id = $_POST['product_id'];
+    $_SESSION['product_reload'] = $product_id;
     $sql = "SELECT * FROM products WHERE id='$product_id'";
   }
   else if($reason_for_visiting == "search")
@@ -31,6 +32,14 @@
   { 
     $_SESSION['product_page'] = 'view_product';
     $product_id = $_SESSION['product_id'];
+    $_SESSION['product_reload'] = $product_id;
+    $sql = "SELECT * FROM products WHERE id='$product_id'"; 
+  }
+  else if($reason_for_visiting == "product_reload")
+  { 
+    $_SESSION['product_page'] = 'view_product';
+    $product_id = $_SESSION['product_id'];
+    $_SESSION['product_reload'] = $product_id;
     $sql = "SELECT * FROM products WHERE id='$product_id'"; 
   }
 
@@ -66,7 +75,7 @@
     <div class="four columns panel">
       <h2>Stock: <?php print $stock; ?></h2>
       <h2>$<?php print $price; ?></h2>
-      <a href="#">
+      <a href="cart.php">
         <div class="panel callout radius" align="center">
           <h4>Add to Cart</h4>
         </div>
@@ -130,7 +139,7 @@
 
             for($i = 0; $i < $rating; $i++)
             {
-                print " <i class='foundicon-thumb-up'></i> ";
+                print " <i class='foundicon-star'></i></i> ";
             }
 
             print "
