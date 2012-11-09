@@ -1,18 +1,20 @@
 <?php
-      function writeShoppingCart() {
-            $cart = $_SESSION['cart'];
-            if (!$cart) {
-            	$numItems= 0;
-                  return $numItems;
-            } else {
-            	// Parse the cart session variable
-            	$items = explode(',',$cart);
-            	$numItems = count($items);
-            	return $numItems;
-            }
-      }
 
-      function showCart() {
+function writeShoppingCart() {
+$cart = $_SESSION['cart'];
+if (!$cart) {
+      $numItems= 0;
+return $numItems;
+} else {
+      // Parse the cart session variable
+      $items = explode(',',$cart);
+      $numItems = count($items);
+      return $numItems;
+}
+}
+
+function showCart() {
+                  include("mysql_connect.php");
             $cart = $_SESSION['cart'];
             
             if ($cart) {
@@ -29,11 +31,13 @@
             $result = $db->query($sql);
             $row = $result->fetch();
             extract($row);*/
+
+
             $sql = "SELECT * FROM products WHERE id = '$id'";
             $result = mysql_query( $sql, $connection );
             if(! $result ){
-      		    die('Could not get data: ' . mysql_error());
-      		  }
+                      die('Could not get data: ' . mysql_error());
+                    }
             $row = mysql_fetch_array($result, MYSQL_ASSOC);
             extract($row);
 
@@ -47,12 +51,13 @@
             $output[] = '</tr>';
             }
             $output[] = '</table>';
-            $output[] = '<p>Grand total: &pound;'.$total.'</p>';
+            $output[] = '<p>Grand total: &#36;'.$total.'</p>';
             $output[] = '<div><button type="submit">Update cart</button></div>';
             $output[] = '</form>';
             } else {
             $output[] = '<p>You shopping cart is empty.</p>';
             }
             return join('',$output);
-      }
+            }
+
 ?>
