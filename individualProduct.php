@@ -1,5 +1,7 @@
 <?php 
   session_start();
+
+  $counter = 0;
   
   include 'includes/header.php';
 
@@ -32,6 +34,7 @@
   }
   while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
   {
+      $id = $row['id'];
       $name = $row['name'];
       $description = $row['description'];
       $category = $row['category'];
@@ -62,14 +65,6 @@
         <h4>Add to Cart</h4>
       </div>
       </a>
-      <?php
-      print "
-      <div class='rating'>
-        <a class='unlinked_button' >".$thumbs_up."<i class='foundicon-thumb-up'></i></a>
-        <a class='unlinked_button' >".$thumbs_down."<i class='foundicon-thumb-down'></i></a>
-      </div>
-      ";
-      ?>
     </div>
   </div>
 
@@ -83,19 +78,71 @@
   </div>
   <div class="row">
     <div class="eight columns">
-        <h2>Product Reviews</h2>
-      <div class="row panel">
-        <h4>Title of Review</h4>
-        <p>Bacon ipsum dolor sit amet meatball turkey jowl pork chuck short loin sirloin corned beef venison turducken beef ground round. Bresaola beef ribs meatloaf, filet mignon strip steak drumstick pastrami kielbasa turducken ball tip pig doner shankle short ribs beef. Tail pork loin chuck ball tip kielbasa jowl pastrami pork belly, pancetta tongue doner. Pancetta jowl prosciutto ham jerky tongue boudin sausage biltong ham hock swine strip steak drumstick. Strip steak tail swine, beef ribs ribeye drumstick chicken meatball bacon hamburger sirloin pancetta t-bone doner shankle.</p>
-      </div>
-      <div class="row panel">
-        <h4>Title of Review</h4>
-        <p>Shank pork belly chicken, brisket bresaola pig shankle pancetta boudin filet mignon bacon drumstick tail. Prosciutto beef ribs pig rump chicken pastrami bacon ham hock. Capicola kielbasa shankle flank, brisket frankfurter ball tip biltong drumstick jowl swine. Meatloaf biltong sirloin, shank sausage tongue bacon flank turkey shoulder pastrami frankfurter venison. Flank ball tip short loin, beef ribs bacon swine fatback andouille kielbasa jerky pig turducken.</p>
-      </div>
-      <div class="row panel">
-        <h4>Title of Review</h4>
-        <p>Capicola pork loin sausage spare ribs, salami corned beef bresaola. Swine filet mignon shankle biltong sirloin prosciutto, salami capicola tri-tip tail spare ribs pastrami. Flank jerky brisket cow, meatball t-bone spare ribs pork chop sausage ground round chicken beef boudin. Chuck leberkas kielbasa sirloin bresaola filet mignon. Fatback t-bone jowl shankle pig bacon tri-tip pancetta pork belly salami doner.</p>
-      </div> 
+      <h2>Product Reviews</h2>
+
+      <form action="catalog.php" method="post" accept-charset="utf-8">
+        <fieldset>
+          <p><label for="title">Title</label>
+            <input type="text" name="title" />
+          </p>
+          <p><label for="review">Review</label>
+            <textarea name="review" rows="8" cols="40"></textarea>
+          </p>
+          <p><label for="rating">Rating</label>
+            <input type="radio" name="rating" value="5" /> 5 
+            <input type="radio" name="rating" value="4" /> 4
+            <input type="radio" name="rating" value="3" /> 3 
+            <input type="radio" name="rating" value="2" /> 2 
+            <input type="radio" name="rating" value="1" /> 1
+          </p>
+          <p>
+            <input type="submit" value="Submit Review">
+          </p>
+
+          <input type="hidden" name="product_id" value="actual_product_id" id="product_id">
+        </fieldset>
+      </form>
+
+      <?php
+
+        $sql = "SELECT * FROM product_reviews WHERE product_id = '$id' ";
+        $retval = mysql_query( $sql, $conn );
+
+        if(! $retval ){
+          die('Could not get data: ' . mysql_error());
+        }
+        while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+        {
+            $title = $row['title'];
+            $review = $row['review'];
+            $rating = $row['rating'];
+
+            print "
+              <div class='row panel'>
+                <h4>".$title."</h4>
+                <p>
+            ";
+
+            for($i = 0; $i < $rating; $i++)
+            {
+                print " <i class='foundicon-thumb-up'></i> ";
+            }
+
+            print "
+                </p>
+                <p>".$review."</p>
+              </div>
+              <div class='catalog_border catalog_spacer'>
+            ";
+
+            $counter++;
+        }
+
+        if($counter == 0)
+        {
+          print "There are no reviews. Be the first to review this product!";
+        }
+      ?>
     </div>
   </div>
 <!-- Footer -->
