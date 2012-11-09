@@ -8,9 +8,6 @@
       <h1>Account</h1>
       <hr />
     </div>
-    <div class="three columns">
-      <?php include('includes/searchform.php'); ?>
-    </div>
   </div>
 
   <div class="row">

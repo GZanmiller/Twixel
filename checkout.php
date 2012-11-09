@@ -24,6 +24,10 @@
               <h4>".$email."</h4>
               <h4>".$address."</h4>
               <h4>".$city." ".$state." ".$zip."</h4>
+
+              <form action='http://www.paypal.com' method='post'>
+                <input type='submit' name='submit' value='Checkout' class='radius button' />
+              </form>
             </div>
             <div class='four columns'></div>";
     }
@@ -32,7 +36,7 @@
   ?>
       <div class="row">
       <div class="nine columns">
-        <form href="paypal.com" method="post">
+        <form action="http://www.paypal.com" method="post">
             <label>First Name</label>
             <input type="text" id="firstName" placeholder="Enoch" />
             
@@ -64,7 +68,7 @@
   ?>
 
   <div class="row">
-    <div class="nine columns">
+    <div class="nine columns" id="terms_conditions">
       <p id="terms">Please read our <a href="terms.php">Terms and Conditions</a> before checking out</p>
     </div>
   </div>
