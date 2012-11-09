@@ -30,7 +30,7 @@ include('includes/mysql_connect.php');
   <!-- IMPORT CSS -->
   
   <style type="text/css">
-    @import url("css/foundation.min.css");
+    @import url("css/foundation.css");
     @import url("css/styles.css");
   </style>
 
@@ -63,18 +63,14 @@ include('includes/mysql_connect.php');
   
   <!-- Header and Nav -->
   
-  <nav class="top-bar">
-    <div class="row">
-      <a class="logo two column" href="home.php" title="Twixel">
+  <nav class="top-bar fixed">
+
+     <a class="logo left" href="home.php" title="Twixel">
         <img src="img/logo-b.png" alt="Twixel"/>
-      </a>
+    </a>
 
-      <div class="search_area six column">
-        <?php include('includes/searchform.php'); ?>
-      </div>
-
-      <!-- Right Nav Section -->
-      <ul class="four column">
+    <section>
+      <ul class="right">
         <li><a href="home.php">Home</a></li>
         <li class="has-dropdown">
           <a href="catalog.php#adobePlugins">Products</a>
@@ -114,10 +110,13 @@ include('includes/mysql_connect.php');
               </li>";
           }
         ?>
-        <li><a href="cart.php">Cart (0)</a></li>
-      </ul>
-    </div>
+          <li><a href="cart.php">Cart (0)</a></li>
+        </ul>
+ 
+      </section>
   </nav>
+
+  
 
   <div id="signin_form">
     <form method='post' action='signin.php'>
