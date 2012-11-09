@@ -65,7 +65,7 @@
       <h3>"Great News Everyone"</h3>
 
       <div class="four columns">
-        <img src="img/responsive.png" alt="greatNews" />
+        <!--<img src="img/responsive.png" alt="greatNews" />-->
         <h4>Our site is responsive!</h4>
         <p>Check out our site on your smartphone! It automatically resizes everything to fit the width of the screen. It's pretty awesome if you ask me.
            As before, we are still a bit aways from releasing all of our products. 
@@ -74,7 +74,7 @@
       </div>
 
       <div class="four columns">
-        <img src="img/html5.png" alt="finally" />
+        <!--<img src="img/html5.png" alt="finally" />-->
         <h4>We are finally live!</h4>
         <p>After all these weeks we finally have the website up and running. 
           It's been a long few months developing all the plugins, themes, fonts, and everything else we have to offer. 
@@ -84,36 +84,13 @@
       </div>
       
       <div class="four columns">
-        <img src="img/hey.jpg" alt="hey" />
+        <!--<img src="img/hey.jpg" alt="hey" />-->
         <h4>We're finally doing this.</h4>
         <p>I know this won't be seen by anyone but the development team until the site is ready to launch but we are all excited.
           Hey Dev Team, what's up? Come by my office and say, "Hello."</p>
         <p><em>Posted: 21 Sept 2012 @ 13:31</em></p>
       </div>
-      <hr />
     </div>
-    
-    
-    <!-- Call to Action Panel -->
-    <div class="row">
-      <div class="twelve columns">
-      
-        <div class="panel">
-          <h4>Get in touch!</h4>
-              
-          <div class="row">
-            <div class="nine columns">
-              <p>We love our customers and we'd love to hear from you.</p>
-            </div>
-            <div class="three columns">
-              <a href="contact.php" class="radius button right">Contact Us</a>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    
     
     <!-- Footer -->
     <?php include('footer.php') ?>

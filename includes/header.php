@@ -64,52 +64,58 @@ include('includes/functions.php');
 <body>
   
   <!-- Header and Nav -->
-  
-  <nav class="top-bar fixed">
+  <div class="fixed header">
+    <nav class="top-bar">
 
-      <a class="logo left" href="home.php" title="Twixel">
-        <img src="img/logo-b.png" alt="Twixel"/>
-      </a>
+        <a class="logo left" href="home.php" title="Twixel">
+          <img src="img/logo-b.png" alt="Twixel"/>
+        </a>
 
-      <section>
-        <ul class="right">
-        <li><a href="home.php">Home</a></li>
-        <li class="has-dropdown">
-          <a href="catalog.php#adobePlugins">Products</a>
-          <ul class="dropdown">
-            <li><a href="catalog.php#adobePlugins">Adobe Plugins</a></li>
-            <li><a href="catalog.php#designSoftware">Design Software</a></li>
-            <li><a href="catalog.php#audioRecording">Audio Recording</a></li>
-            <li><a href="catalog.php#hardware">Hardware</a></li>
-            <li><a href="catalog.php#webDevelopment">Web Development</a></li>
-            <li><a href="catalog.php#videoEditing">Video Editing</a></li>
-            <li><a href="catalog.php#wordpressThemes">Wordpress Themes</a></li>
-          </ul>
-        </li>
-        <?php
-          if($_SESSION["logged_in"] != "yes")
-          {
-            print "<li>
-                    <a href='login.php'>Login</a>
-                   </li>";
-          }
-          else {
-            print "
-              <li class='has-dropdown'>
-                <a href='client.php'>Account</a>
-                <ul class='dropdown'>
-                  <li><a href='client.php'>Account Information</a></li>
-                  <li><a href='client.php#openOrders'>Open Orders</a></li>
-                  <li><a href='client.php#pastOrders'>Past Orders</a></li>
-                  <li><a href='logout.php'>Logout</a></li>
-                </ul>
-              </li>";
-          }
-        ?>
-        <li><a href="cart.php">Cart (<?php echo writeShoppingCart(); ?>)</a></li>
-      </ul>
-    </section>
-  </nav>
+        <section>
+          <ul class="right">
+          <li><a href="home.php">Home</a></li>
+          <li class="has-dropdown">
+            <a href="catalog.php#adobePlugins">Products</a>
+            <ul class="dropdown">
+              <li><a href="catalog.php#adobePlugins">Adobe Plugins</a></li>
+              <li><a href="catalog.php#designSoftware">Design Software</a></li>
+              <li><a href="catalog.php#audioRecording">Audio Recording</a></li>
+              <li><a href="catalog.php#hardware">Hardware</a></li>
+              <li><a href="catalog.php#webDevelopment">Web Development</a></li>
+              <li><a href="catalog.php#videoEditing">Video Editing</a></li>
+              <li><a href="catalog.php#wordpressThemes">Wordpress Themes</a></li>
+            </ul>
+          </li>
+          <?php
+            if($_SESSION["logged_in"] != "yes")
+            {
+              print "<li>
+                      <a href='login.php'>Login</a>
+                     </li>";
+            }
+            else {
+              print "
+                <li class='has-dropdown'>
+                  <a href='client.php'>Account</a>
+                  <ul class='dropdown'>
+                    <li><a href='client.php'>Account Information</a></li>
+                    <li><a href='client.php#openOrders'>Open Orders</a></li>
+                    <li><a href='client.php#pastOrders'>Past Orders</a></li>
+                    <li><a href='logout.php'>Logout</a></li>
+                  </ul>
+                </li>";
+            }
+          ?>
+          <li><a href="cart.php">Cart (<?php echo writeShoppingCart(); ?>)</a></li>
+        </ul>
+      </section>
+    </nav>
+    <div class="search_area">
+      <span>
+      <?php include('includes/searchform.php'); ?>
+    </span>
+    </div>
+  </div>
 
 
   <!-- End Header and Nav -->

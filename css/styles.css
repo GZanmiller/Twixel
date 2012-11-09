@@ -774,7 +774,6 @@ dl.tabs dd.active {
 }
 
 input[type=search] {
-  margin-top: 25px;
 }
 
 .logo {
@@ -784,10 +783,25 @@ input[type=search] {
 }
 
 .top-bar {
-  position:fixed;
   top:0;
   z-index: 10000;
   height:auto;
+}
+
+.header {
+  background:#222;
+}
+
+.search_area {
+  padding: 10px 10px 0;
+  width: 100%;
+  overflow: hidden;
+  background: #555;
+}
+
+.search_area span {
+  float: right;
+  width: 30%;
 }
 
 .top-bar ul {
@@ -812,7 +826,7 @@ input[type=search] {
 
 .spacer {
   float:right;
-  height:75px;
+  height:105px;
   width:100%;
 }
 
@@ -936,13 +950,45 @@ input[type=search] {
   .left {
     float:left;
   }
+
+
+}
+
+@media only screen and (max-width:640px) {
+    .search_area {
+ padding: 10px 10px 10px;
+width: 100%;
+
+ height: auto;
+ clear: both;
+}
+
+.search_area span {
+  width: 80%;
+  float:none;
+}
 }
 
 @media only screen and (max-width:505px) {
   .spacer {
-    height:131px;
+    height:161px;
   }
   .top-bar ul.right {
     width:100%;
   }
+}
+
+.footer-container {
+  background:#222;
+  width:100%;
+  padding:15px;
+  margin-top:30px;
+}
+
+.footer-container h4, .footer-container p {
+  color:#ddd;
+}
+
+footer ul{
+list-style:none;
 }
