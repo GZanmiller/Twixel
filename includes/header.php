@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*------------
 *
 * Header Template
@@ -6,6 +7,7 @@
 --------------*/
 //this is our connection to the db
 include('includes/mysql_connect.php');
+include('includes/functions.php');
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +106,7 @@ include('includes/mysql_connect.php');
               </li>";
           }
         ?>
-        <li><a href="cart.php">Cart (0)</a></li>
+        <li><a href="cart.php">Cart (<?php echo writeShoppingCart(); ?>)</a></li>
       </ul>
     </section>
   </nav>
