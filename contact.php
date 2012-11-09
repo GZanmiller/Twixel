@@ -10,7 +10,7 @@
       <hr />
     </div>
     <div class="three columns">
-      <input class="search" type="search" placeholder="Search..." />
+      
     </div>
   </div>
 
