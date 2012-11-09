@@ -6,11 +6,10 @@
 
   <div class="row">
 	<div class="twelve columns">
-		<div id="signin_form">
+
+		<div id="signin">
 		    <form method='post' action='signin.php'>
-
-		      <legend class="signup_legend">Log In</legend>
-
+          <h2>Login</h2>
 		      <input type='text' name='login_input_email' placeholder='Email' />
 		      <input type='password' name='login_input_password' placeholder='Password' />
 		      <input type='submit' value='Submit' class='radius button' />
