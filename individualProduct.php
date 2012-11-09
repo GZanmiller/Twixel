@@ -27,6 +27,12 @@
     $product_name = $_POST['search'];
     $sql = "SELECT * FROM products WHERE name='$product_name'"; 
   }
+  else if($reason_for_visiting == "review_added")
+  { 
+    $_SESSION['product_page'] = 'view_product';
+    $product_id = $_SESSION['product_id'];
+    $sql = "SELECT * FROM products WHERE id='$product_id'"; 
+  }
 
   $retval = mysql_query( $sql, $conn );
   if(! $retval ){
@@ -55,21 +61,21 @@
 
   <div class="row">
     <div class="eight columns">
-      <img src="<?php print $image; ?>" alt="<?php print $name; ?>" />
+      <?php print "<img src='".$image."' alt='".$name."' /> "; ?>
     </div>
     <div class="four columns panel">
       <h2>Stock: <?php print $stock; ?></h2>
       <h2>$<?php print $price; ?></h2>
       <a href="#">
-      <div class="panel callout radius" align="center">
-        <h4>Add to Cart</h4>
-      </div>
+        <div class="panel callout radius" align="center">
+          <h4>Add to Cart</h4>
+        </div>
       </a>
     </div>
   </div>
 
   <div class="row">
-    <div class="eight columns">
+    <div class="twelve columns">
       <div class="row panel">
         <h2>Product Overview</h2>
         <p><?php print $description; ?></p>
@@ -77,10 +83,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="eight columns">
+    <div class="twelve columns">
       <h2>Product Reviews</h2>
 
-      <form action="catalog.php" method="post" accept-charset="utf-8">
+      <form action="add_review.php" method="post" accept-charset="utf-8">
+        <?php print "<input type='hidden' name='product_id' value='".$id."' id='product_id' />"; ?>
         <fieldset>
           <p><label for="title">Title</label>
             <input type="text" name="title" />
@@ -98,8 +105,6 @@
           <p>
             <input type="submit" value="Submit Review">
           </p>
-
-          <input type="hidden" name="product_id" value="actual_product_id" id="product_id">
         </fieldset>
       </form>
 
@@ -132,7 +137,7 @@
                 </p>
                 <p>".$review."</p>
               </div>
-              <div class='catalog_border catalog_spacer'>
+              <div class='catalog_border catalog_spacer'></div>
             ";
 
             $counter++;

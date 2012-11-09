@@ -112,7 +112,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -163,7 +162,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -213,7 +211,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -263,7 +260,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -313,7 +309,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
@@ -363,7 +358,6 @@
             }
             while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
             {
-                $_SESSION['product_page'] = 'view_product';
                 $id = $row['id'];
                 $name = $row['name'];
                 $price = $row['price'];
