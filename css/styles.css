@@ -998,3 +998,22 @@ width: 100%;
 footer ul{
 list-style:none;
 }
+
+#contactFormTab, #contactPeopleTab {
+    background:#ddd;
+    border:2px solid #2BA6CB;
+}
+
+#contactFormTab li, #contactPeopleTab li {
+  border:none;
+}
+
+ul.tabs-content li {
+  background:#ddd;
+    border:2px solid #2BA6CB;
+    padding:15px!important;
+}
+
+.tabs {
+  margin-bottom:0!important;
+}
