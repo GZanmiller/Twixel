@@ -920,8 +920,9 @@ input[type=search] {
 .clear {
   clear:both;
 }
-
-
+#homeWelcome{
+  text-align: center;
+}
 @media only screen and (max-width: 940px){
   .top-bar ul.left > li, .top-bar ul.right > li {
     display: inline-block;

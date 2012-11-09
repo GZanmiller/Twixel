@@ -4,7 +4,7 @@
     <div class="spacer"></div>
     <div class="row">
       <div class="twelve columns">
-        <h1>Welcome to Twixel Creative and Media</h1>
+        <h1 id="homeWelcome">Welcome to Twixel Creative and Media</h1>
         <h3>This Month's Featured Plugins</h3>
       </div>
     </div>
