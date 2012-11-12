@@ -100,7 +100,7 @@
 
 
             <li id="deleteProductTab">
-              <form action="delete.php" method="post" id="add_item_form">
+              <form action="delete.php" method="post">
                 <fieldset class="signup_fieldset">
                   <h1>Delete Item</h1>
                 </fieldset>
@@ -141,7 +141,7 @@
 
             <li id="userAccountsTab">
 
-              <form action="select_user_update.php" method="post" id="add_item_form">
+              <form action="select_user_update.php" method="post">
                 <fieldset class="signup_fieldset">
                   <h1>User Accounts</h1>
                 </fieldset>
@@ -164,7 +164,7 @@
                         $first_name_find = $row['first_name'];
                         $last_name_find = $row['last_name'];
 
-                        print "<option value='".$id."''>".$first_name_find." ".$last_name_find."</option>";
+                        print "<option value='".$id."'>".$first_name_find." ".$last_name_find."</option>";
                     }
                   ?>
                 </select>

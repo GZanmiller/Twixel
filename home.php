@@ -1,7 +1,6 @@
 <?php 
   include 'includes/header.php';
   include 'includes/mysql_connect.php';
-  $_SESSION['product_page'] = "view_project";
 ?>
     <div class="spacer"></div>
     <div class="row">
@@ -68,7 +67,7 @@
 
       <div class="four columns">
         <!-- <img src="img/responsive.png" alt="greatNews" /> -->
-        <img src="img/newsImages/responsive.png" alt="responsive" id="newsImage" />
+        <img src="img/newsImages/responsive.png" alt="responsive" id="newsImage1" />
         <h4>Our site is responsive!</h4>
         <p>Check out our site on your smartphone! It automatically resizes everything to fit the width of the screen. It's pretty awesome if you ask me.
            As before, we are still a bit aways from releasing all of our products. 
@@ -78,7 +77,7 @@
 
       <div class="four columns">
         <!-- <img src="img/html5.png" alt="finally" /> -->
-        <img src="img/newsImages/html5.png" alt="html5" id="newsImage" />
+        <img src="img/newsImages/html5.png" alt="html5" id="newsImage2" />
         <h4>We are finally live!</h4>
         <p>After all these weeks we finally have the website up and running. 
           It's been a long few months developing all the plugins, themes, fonts, and everything else we have to offer. 
@@ -89,7 +88,7 @@
       
       <div class="four columns">
         <!-- <img src="img/hey.jpg" alt="hey" /> -->
-        <img src="img/newsImages/hey.png" alt="hey" id="newsImage" />
+        <img src="img/newsImages/hey.png" alt="hey" id="newsImage3" />
         <h4>We're finally doing this!</h4>
         <p>I know this won't be seen by anyone but the development team until the site is ready to launch but we are all excited.
           Hey Dev Team, what's up? Come by my office and say, "Hello."</p>

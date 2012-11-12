@@ -937,7 +937,19 @@ input[type=search] {
 #homeWelcome{
   text-align: center;
 }
-#newsImage {
+#newsImage1 {
+  float: left;
+  padding-right: 3px;
+  height:40px;
+  width:40px;
+}
+#newsImage2 {
+  float: left;
+  padding-right: 3px;
+  height:40px;
+  width:40px;
+}
+#newsImage3 {
   float: left;
   padding-right: 3px;
   height:40px;

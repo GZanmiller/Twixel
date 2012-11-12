@@ -43,7 +43,7 @@
     <h2>$<?php print $price; ?></h2>
     <div class="panel">
       <!-- <h4>Add to Cart</h4> -->
-      <a class="added button radius" href="cart.php?action=add&id=<?php echo $id; ?> ">Add to Cart</a>
+      <a class="added button radius" href="cart.php?action=add&amp;id=<?php echo $id; ?> ">Add to Cart</a>
     </div>
   </div>
   <div class="two column"></div>
@@ -67,22 +67,21 @@
     <form action="add_review.php" method="post" accept-charset="utf-8">
       <?php print "<input type='hidden' name='product_id' value='".$id."' id='product_id' />"; ?>
       <fieldset>
-        <p><h2>Title</h2>
+        <h2>Title</h2>
           <input type="text" name="title" />
-        </p>
-        <p><label for="review">Review</label>
+        <h2>Review</h2>
           <textarea name="review" rows="8" cols="40"></textarea>
-        </p>
-        <p><label for="rating">Rating</label>
-          <input type="radio" name="rating" value="5" /> 5 
-          <input type="radio" name="rating" value="4" /> 4
-          <input type="radio" name="rating" value="3" /> 3 
-          <input type="radio" name="rating" value="2" /> 2 
-          <input type="radio" name="rating" value="1" /> 1
-        </p>
-        <p>
-          <input type="submit" class="radius button" value="Submit Review">
-        </p>
+
+        <div><h2>Rating</h2>
+        <input type="radio" name="rating" value="5" /> 5 
+        <input type="radio" name="rating" value="4" /> 4
+        <input type="radio" name="rating" value="3" /> 3 
+        <input type="radio" name="rating" value="2" /> 2 
+        <input type="radio" name="rating" value="1" /> 1
+        </div>
+        
+        <input type="submit" class="radius button catalog_spacer" value="Submit Review">
+
       </fieldset>
     </form>
   </div>
