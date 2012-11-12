@@ -121,7 +121,7 @@ $_SESSION['cart'] = $cart;
 
           <br />
           <p>
-            <a class="feature-buy" href="checkout.php" title="">Check Out</a> or
+            <a class="feature-buy button radius" href="checkout.php" title="">Check Out</a> or
             <a href="catalog.php" title="">Continue Shopping</a>
           </p>
 

@@ -1,6 +1,7 @@
 <?php 
   include 'includes/header.php';
   include 'includes/mysql_connect.php';
+  $_SESSION['product_page'] = "view_project";
 ?>
     <div class="spacer"></div>
     <div class="row">

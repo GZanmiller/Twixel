@@ -4,31 +4,14 @@
 
   $reason_for_visiting = $_SESSION['product_page'];
 
-  if($reason_for_visiting == "view_product")
+  $product_name = $_POST['product_name'];
+  if($reason_for_visiting == "search")
   {
-    $product_id = $_POST['product_id'];
-    $_SESSION['product_reload'] = $product_id;
-    $sql = "SELECT * FROM products WHERE id='$product_id'";
+    $sql = "SELECT * FROM products WHERE name='$product_name'";
   }
-  else if($reason_for_visiting == "search")
+  else
   {
-    $_SESSION['product_page'] = 'view_product';
-    $product_name = $_POST['search'];
-    $sql = "SELECT * FROM products WHERE name='$product_name'"; 
-  }
-  else if($reason_for_visiting == "review_added")
-  { 
-    $_SESSION['product_page'] = 'view_product';
-    $product_id = $_SESSION['product_id'];
-    $_SESSION['product_reload'] = $product_id;
-    $sql = "SELECT * FROM products WHERE id='$product_id'"; 
-  }
-  else if($reason_for_visiting == "product_reload")
-  { 
-    $_SESSION['product_page'] = 'view_product';
-    $product_id = $_SESSION['product_id'];
-    $_SESSION['product_reload'] = $product_id;
-    $sql = "SELECT * FROM products WHERE id='$product_id'"; 
+    $sql = "SELECT * FROM products WHERE name='$product_name'";
   }
 
   $retval = mysql_query( $sql, $connection );
@@ -46,6 +29,8 @@
       $image = $row['image'];
       $thumbs_up = $row['thumbs_up'];
       $thumbs_down = $row['thumbs_down'];
+
+      $product_id = $id;
   }
 
 ?>
@@ -66,9 +51,9 @@
   <div class="four columns panel">
     <h2>Stock: <?php print $stock; ?></h2>
     <h2>$<?php print $price; ?></h2>
-    <div class="panel callout radius" align="center">
+    <div class="panel">
       <!-- <h4>Add to Cart</h4> -->
-      <a class="added" href="cart.php?action=add&id=<?php echo $product_id; ?> ">Add to Cart</a>
+      <a class="added button radius" href="cart.php?action=add&id=<?php echo $product_id; ?> ">Add to Cart</a>
     </div>
   </div>
   <div class="two column"></div>
@@ -92,7 +77,7 @@
     <form action="add_review.php" method="post" accept-charset="utf-8">
       <?php print "<input type='hidden' name='product_id' value='".$id."' id='product_id' />"; ?>
       <fieldset>
-        <p><label for="title">Title</label>
+        <p><h2>Title</h2>
           <input type="text" name="title" />
         </p>
         <p><label for="review">Review</label>

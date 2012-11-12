@@ -905,6 +905,7 @@ input[type=search] {
 
 #terms {
   text-align:center;
+  margin-top:20px;
 }
 
 #delete_select {
@@ -961,9 +962,9 @@ input[type=search] {
 }
 
 @media only screen and (max-width:640px) {
-    .search_area {
- padding: 10px 10px 10px;
-width: 100%;
+  .search_area {
+  padding: 10px 10px 10px;
+  width: 100%;
 
  height: auto;
  clear: both;
@@ -1001,4 +1002,23 @@ list-style:none;
 
 #terms_conditions {
   margin-top:20px;
+}
+
+#contactFormTab, #contactPeopleTab {
+    background:#ddd;
+    border:2px solid #2BA6CB;
+}
+
+#contactFormTab li, #contactPeopleTab li {
+  border:none;
+}
+
+ul.tabs-content li {
+  background:#ddd;
+    border:2px solid #2BA6CB;
+    padding:15px!important;
+}
+
+.tabs {
+  margin-bottom:0!important;
 }

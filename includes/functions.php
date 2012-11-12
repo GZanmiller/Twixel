@@ -52,7 +52,7 @@ function showCart() {
             }
             $output[] = '</table>';
             $output[] = '<p>Grand total: &#36;'.$total.'</p>';
-            $output[] = '<div><button type="submit">Update cart</button></div>';
+            //$output[] = '<div><button type="submit">Update cart</button></div>';
             $output[] = '</form>';
             } else {
             $output[] = '<p>You shopping cart is empty.</p>';

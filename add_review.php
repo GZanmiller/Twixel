@@ -16,8 +16,5 @@
 		die('Error: '.mysql_error());
 	}
 
-	$_SESSION['product_page'] = "review_added";
-	$_SESSION['product_id'] = $product_id;
-
-	header("location:individualProduct.php");
+	header("location:catalog.php");
 ?>

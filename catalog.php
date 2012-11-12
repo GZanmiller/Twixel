@@ -74,19 +74,19 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -119,19 +119,19 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -164,7 +164,7 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
@@ -176,7 +176,7 @@
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -208,19 +208,19 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -257,14 +257,14 @@
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -296,19 +296,19 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;
@@ -340,19 +340,19 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
                   <h5>$".$price."</h5>
                   <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
+                    <input type='hidden' name='product_name' value='".$name."' />
                     <input type='submit' name='submit' value='View Item' class='radius button' />
                   </form>
                 </div>";
 
               $counter++;
 
-              if($counter == 3) 
+              if($counter == 4) 
               {
                 print "</div> <div class='catalog_border catalog_spacer'></div>";
                 $counter = 0;

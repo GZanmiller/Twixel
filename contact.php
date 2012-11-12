@@ -6,19 +6,16 @@
 <!-- Main Page Content and Sidebar -->
 <div class="spacer"></div>
  <div class="row">
-    <div class="nine columns">
+    <div class="eight columns">
       <h1>Contact</h1>
       <hr />
     </div>
-    <div class="three columns">
-      
-    </div>
-  </div>
+</div>
 
 <div class="row">
 
     <!-- Contact Details -->
-    <div class="nine columns">
+    <div class="eight columns">
 
       <h3>Get in Touch!</h3>
       <p>Shoot us an email, whether you've got a question, a concern, or just want to say hello. We'll get back to you as soon as we can. Keep in mind we're always busy working on great new products and upkeeping our current ones. So if we don't reply right away, don't worry.</p>
@@ -49,7 +46,7 @@
 
         <li id="contactPeopleTab">
           <ul class="block-grid five-up">
-            <li><a href="mailto:yler.berry@knights.ucf.edu"><img src="img/contactImg/kyler.jpg" alt="kyler" /><br />Kyler Berry</a><p>Product Manager</p></li>
+            <li><a href="mailto:kyler.berry@knights.ucf.edu"><img src="img/contactImg/kyler.jpg" alt="kyler" /><br />Kyler Berry</a><p>Product Manager</p></li>
             <li><a href="mailto:mark_gorion@knights.ucf.edu"><img src="img/contactImg/mark.jpg" alt="mark" /><br />Mark Gorion</a><p>Developer</p></li>
             <li><a href="mailto:fmurrugarra@knights.ucf.edu"><img src="img/contactImg/fernando.jpg" alt="fernando" /><br />Fernando Murrugarra</a><p>User Testing</p></li>
             <li><a href="mailto:spearzachary@gmail.com"><img src="img/contactImg/zack.jpg" alt="zack" /><br />Zack Spear</a><p>Lead Designer</p></li>
@@ -60,28 +57,26 @@
 
     </div>
 
-
-
-    <!-- Sidebar -->
-
-    <div class="three columns">
-
-      <h5>Map</h5>
-      <p>
-      	<a href="http://goo.gl/maps/51p6m" target="_blank"><img src="img/map.png" alt="map" /></a>
-        <a href="http://goo.gl/maps/51p6m" target="_blank">View Larger Map</a>
-      </p>
-
-      <p>
-        Twixel Inc.<br />
-        99 S. Eola Drive<br />
-        Orlando, FL 32801
-      </p>
-
+<!-- Sidebar -->
+  <div class="four column">
+    <div class="sidebar">
+   <div class="aside">
+      <h2>Support</h2>
+      <p>location:<br/>123 Fake St. Orlando, FL</p>
+      <p>email:<br/><a href="mailto:info@twixel.com" title="">info@twixel.com</a></p>
+      <p>phone:<br/>407.555.5555</p>
     </div>
-
-    <!-- End Sidebar -->
-
+    <div class="aside">
+      <h2>Affiliates</h2>
+      <p>We offer a competitive affiliate program where you can earn money for each sale made by someone you refer. Instant payments on every commission via PayPal. </p>
+    </div>
+    <div class="aside">
+          <h2>Stay up to date!</h2>
+          <p>Sign-up for our email list to receive information about deals, coupons, and updates about Twixel. Max 4 emails per month.</p>
+          <a href="#" class="radius button right">Sign-up</a>
+      </div>
+    </div>
+  </div>
 
   <!-- End Main Content and Sidebar -->
   </div>

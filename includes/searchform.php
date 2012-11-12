@@ -7,14 +7,14 @@
 ?>
 
 <form method="post" action="individualProduct.php"  id="searchform">
-      <input type="search" class="search" name="search" placeholder="Search..." />
+      <input type="search" class="search" name="product_name" placeholder="Search..." />
 </form>
 
 <?php
 	
-	if(isset($_POST['search']))
+	if(isset($_POST['product_name']))
 	{ 
-		$search=$_POST['search'];
+		$search=$_POST['product_name'];
 
 		if(preg_match("/^[A-Z0-9|a-z]+/",$search)) 
 		{
