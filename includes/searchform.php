@@ -4,25 +4,22 @@
 * Searchform
 *
 --------------*/
-?>
 
-<form method="post" action="individualProduct.php"  id="searchform">
-      <input type="search" class="search" name="product_name" placeholder="Search..." />
-</form>
+	print "<form method='get' action=\"individualProduct.php?name=".$_POST['product_name']."\"  id='searchform'>
+		<input type='search' class='search' name='name' placeholder='Search...' />
+	</form>"; ?>
 
 <?php
 	
-	if(isset($_POST['product_name']))
+	if(isset($_POST['name']))
 	{ 
-		$search=$_POST['product_name'];
+		$search=$_POST['name'];
 
 		if(preg_match("/^[A-Z0-9|a-z]+/",$search)) 
 		{
 			
 			$query="SELECT id FROM products WHERE category <> 'featured' AND name LIKE '%" .$search. "%'";
 			$result=mysql_query($query); 
-
-			$_SESSION['product_page'] = "search";
 
 			if(! $result )
 	        {

@@ -2,20 +2,13 @@
   include 'includes/mysql_connect.php';
   include 'includes/header.php';
 
-  $reason_for_visiting = $_SESSION['product_page'];
+  $name = $_GET[name];
 
-  $product_name = $_POST['product_name'];
-  if($reason_for_visiting == "search")
-  {
-    $sql = "SELECT * FROM products WHERE name='$product_name'";
-  }
-  else
-  {
-    $sql = "SELECT * FROM products WHERE name='$product_name'";
-  }
 
-  $retval = mysql_query( $sql, $connection );
-  if(! $retval ){
+  $sql = "SELECT * FROM products WHERE name='$name'";
+
+  $retval = mysql_query($sql, $connection );
+  if(!$retval){
     die('Could not get data: ' . mysql_error());
   }
   while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
@@ -29,10 +22,7 @@
       $image = $row['image'];
       $thumbs_up = $row['thumbs_up'];
       $thumbs_down = $row['thumbs_down'];
-
-      $product_id = $id;
   }
-
 ?>
 
 <!-- End Header and Nav -->
@@ -53,7 +43,7 @@
     <h2>$<?php print $price; ?></h2>
     <div class="panel">
       <!-- <h4>Add to Cart</h4> -->
-      <a class="added button radius" href="cart.php?action=add&id=<?php echo $product_id; ?> ">Add to Cart</a>
+      <a class="added button radius" href="cart.php?action=add&id=<?php echo $id; ?> ">Add to Cart</a>
     </div>
   </div>
   <div class="two column"></div>

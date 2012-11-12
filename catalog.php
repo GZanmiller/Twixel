@@ -1,5 +1,4 @@
 <?php 
-  $_SESSION['product_page'] = "view_project";
   include 'includes/header.php';
   include 'includes/mysql_connect.php';
 ?>
@@ -77,12 +76,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?name=".$row["name"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -122,12 +119,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -167,12 +162,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_id' value='".$id."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -211,12 +204,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -252,15 +243,13 @@
                 }
 
                 print "
-                <div class='four columns catalog_items'>
+                <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -299,12 +288,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
@@ -343,12 +330,10 @@
                 <div class='three columns catalog_items'>
                   <img src='".$image."' alt='".$name."' class='product_images' />
                   <h4>".$name."</h4>
-                  <h5>$".$price."</h5>
-                  <form action='individualProduct.php' method='post'>
-                    <input type='hidden' name='product_name' value='".$name."' />
-                    <input type='submit' name='submit' value='View Item' class='radius button' />
-                  </form>
-                </div>";
+                  <h5>$".$price."</h5>";
+
+                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
+                print "</div>";
 
               $counter++;
 
