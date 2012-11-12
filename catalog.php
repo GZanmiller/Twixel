@@ -75,7 +75,7 @@
                         <h4>".$name."</h4>
                         <h5>$".$price."</h5>";
 
-                        echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                        echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                 print "</div>";
 
                 $counter++;
@@ -115,7 +115,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
               $counter++;
@@ -155,7 +155,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
               $counter++;
@@ -194,7 +194,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
               $counter++;
@@ -233,7 +233,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
               $counter++;
@@ -272,7 +272,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
               $counter++;
@@ -311,7 +311,7 @@
                             <h4>".$name."</h4>
                             <h5>$".$price."</h5>";
 
-                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>View Product</a>";
                     print "</div>";
 
                 $counter++;
