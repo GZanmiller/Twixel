@@ -64,24 +64,21 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                print "<div class='three columns catalog_items'>
+                        <img src='".$image."' alt='".$name."' class='product_images' />
+                        <h4>".$name."</h4>
+                        <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?name=".$row["name"]."\" class='radius button'>Add to Cart</a>";
+                        echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
                 print "</div>";
 
-              $counter++;
+                $counter++;
 
               if($counter == 4) 
               {
@@ -107,22 +104,19 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
               $counter++;
 
@@ -150,22 +144,19 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
               $counter++;
 
@@ -192,22 +183,19 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
               $counter++;
 
@@ -234,22 +222,19 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
               $counter++;
 
@@ -276,22 +261,19 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
               $counter++;
 
@@ -318,24 +300,21 @@
                 $name = $row['name'];
                 $price = $row['price'];
                 $image = $row['image'];
-                $thumbs_up = $row['thumbs_up'];
-                $thumbs_down = $row['thumbs_down'];
 
                 if($counter == 0)
                 {
                   print "<div class='row'>";
                 }
 
-                print "
-                <div class='three columns catalog_items'>
-                  <img src='".$image."' alt='".$name."' class='product_images' />
-                  <h4>".$name."</h4>
-                  <h5>$".$price."</h5>";
+                    print "<div class='three columns catalog_items'>
+                            <img src='".$image."' alt='".$name."' class='product_images' />
+                            <h4>".$name."</h4>
+                            <h5>$".$price."</h5>";
 
-                 echo "<a href=\"individualProduct.php?id=".$row["id"]."\" class='radius button'>Add to Cart</a>";
-                print "</div>";
+                            echo "<a href=\"individualProduct.php?name=".rawurlencode($name)."\" class='radius button'>Add to Cart</a>";
+                    print "</div>";
 
-              $counter++;
+                $counter++;
 
               if($counter == 4) 
               {

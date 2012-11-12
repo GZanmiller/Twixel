@@ -5,7 +5,7 @@
 *
 --------------*/
 
-	print "<form method='get' action=\"individualProduct.php?name=".$_POST['product_name']."\"  id='searchform'>
+	print "<form method='get' action='individualProduct.php?name=".$_POST['product_name']."'  id='searchform'>
 		<input type='search' class='search' name='name' placeholder='Search...' />
 	</form>"; ?>
 
