@@ -799,7 +799,7 @@ input[type=search] {
   background: #555;
 }
 
-.search_area span {
+.search_area div {
   float: right;
   width: 30%;
 }
@@ -1033,4 +1033,14 @@ ul.tabs-content li {
 
 .tabs {
   margin-bottom:0!important;
+}
+
+.cat {
+  border-bottom: 1px solid #777;
+padding: 40px 0;
+}
+
+.cat:last-child {
+  border-bottom:0px;
+  padding: 40px 0 20px;
 }
