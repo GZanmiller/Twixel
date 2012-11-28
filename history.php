@@ -22,7 +22,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Twixel Client - Greg Zanmiller</title>
+		<title>Twixel History - Greg Zanmiller</title>
 		<style type="text/css">
 			@import url("css/styles.css");
 		</style>
@@ -44,11 +44,39 @@
 						</form>
 					</div>
 				</div>
+				
 				<div class="right_header">
-					<div class="user_area">
-						<a href="client.php" class="username_btn"><?php print $first_name." ".$last_name; ?></a>
-						<a href="logout.php" class="logout">Logout</a>
-					</div>	
+					<?php 
+						if(session_is_registered(login_input_email))
+						{
+							print "<div class='login_area'>
+								<a href='#' class='login_btn' onclick='show_login_home()'>Login</a>
+								<a href='#' class='signup' onclick='show_signup_home()'>Sign Up</a>
+							</div>";
+						}
+						else
+						{
+							print "<div class='user_area'>
+								<a href='client.php' class='username_btn'>".$first_name." ".$last_name."</a>
+								<a href='logout.php' class='logout'>Logout</a>
+							</div>";
+						}
+					?>
+				</div>
+				<div id="login_screen_home">
+					<form class="login_form" method="post" action="signin.php">
+						<div class="login">
+							<label class="login_label_email">Email: </label>
+							<input type="text" name="login_input_email" id="login_input_email" class="login_box" />
+						
+							<label class="login_label_password">Password: </label>
+							<input type="password" name="login_input_password" id="login_input_password" class="login_box" />
+						</div>
+						<div class="submit">
+							<input type="submit" value="Submit" class="login_button" />
+							<a href="#" class="signin_cancel" onclick="hide_login_home()">Cancel</a>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -61,48 +89,12 @@
 			</ul>
 		</div>
 		
-		<div id="client_body">
-			<div id="upper_client">
-				<div id="client_box">
-					<p id="client_name"><?php print $first_name." ".$last_name; ?></p>
-					<div id="client_history_button">
-						<a href="history.php" id="client_history">View Order History</a>
-					</div>
-					<div id="client_payment_button">
-						<a href="payment.php" id="client_payment">Change Payment Options</a>
-					</div>
-				</div>
-				<div id="cart_area">
-					<p id="cart_area_title">Your Cart:</p>
-					
-					<p id="client_cart_counter">You currently have 1 item in your cart</p>
-					<a href="cart.php" id="client_cart_button">Click here to view your cart</a>
-				</div>
+		<div id="history_body">
+			<div id="top_history">
+				<p id="history_header">Your Order History:</p>
 			</div>
-			<div id="lower_client">
-				<div id="related_items">
-					<h1 id="related_items_header">You May Also Like:</h1>
-					
-					<div id="related1">
-						<?
-							$connection = mysql_connect("localhost", "gr073607", "knights123!") or print "connection failed because ".mysql_error(); 
-							mysql_select_db("gr073607", $connection) or print "select failed because ".mysql_error();
-
-							$myquery = "SELECT * FROM products WHERE id > '1' AND id < 6";
-							$result = mysql_query($myquery);
-
-					 		while($row = mysql_fetch_array($result)) { 
-								print "<div class='related_item'>";
-								print "<img src='".$row['image']."' alt='Related Item Picture' class='related_picture' />";
-								print "<p class='related_name'>".$row['name']."</p>";
-								print "<p class='related_price'>$".$row['price']."</p>";
-								print "<a href='cart.php' class='add_to_cart_btn'>Add to Cart</a>";
-								print "</div>";
-				 			} 
-						?>
-					</div>
-				</div>
-			</div>
+			
+			<p id="history_details">It seems you have no order history</p>
 		</div>
 			
 		<div class="footer">

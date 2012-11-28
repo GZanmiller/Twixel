@@ -1,100 +1,164 @@
-<?php 
-  include 'includes/header.php';
-  include 'includes/mysql_connect.php';
+<?php
+	session_start();
+		
+	$connection = mysql_connect("localhost", "gr073607", "knights123!")or die("cannot connect"); 
+	mysql_select_db("gr073607", $connection)or die("cannot select DB");
+	
+	if(session_is_registered(login_input_email)){
+		
+		$email = $_SESSION['email'];
+
+		$sql = "SELECT * FROM users WHERE email='$email'";
+		$result=mysql_query($sql);
+
+		while($row = mysql_fetch_array($result))
+		{
+			$first_name = $row['first_name'];
+			$last_name = $row['last_name'];
+		}
+	}
 ?>
-    <div class="spacer"></div>
-    <div class="row">
-      <div class="twelve columns">
-        <h1 id="homeWelcome">Welcome to Twixel Creative and Media</h1>
-        <h3>This Month's Featured Plugins</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="six columns">
-        <div>
-          <?php
-            $dbhost = 'localhost';
-            $dbuser = 'gr073607';
-            $dbpass = 'knights123!';
-            $conn = mysql_connect($dbhost, $dbuser, $dbpass);
-            if(! $conn ){
-              die('Could not connect: ' . mysql_error());
-            }
-            $sql = 'SELECT image, name, price, description FROM products WHERE id = "1" ';
-
-            $retval = mysql_query( $sql, $conn );
-            if(! $retval ){
-              die('Could not get data: ' . mysql_error());
-            }
-            while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
-                echo 
-                   "<a href='catalog.php' ><img alt='featuredProduct' src='{$row['image']}' /></a>".
-                   "<h4>{$row['name']} only \${$row['price']}</h4>".
-                   "<p>{$row['description']} </p> ";
-            }
-            mysql_close($conn);
-          ?>
-          <hr />
-        </div>
-        
-      </div>
-      <div class="six columns">
-        <div>
-          <?php
-
-            $sql = 'SELECT image, name, price, description FROM products WHERE id = "2" ';
-
-            $retval = mysql_query( $sql, $conn );
-            if(! $retval ){
-              die('Could not get data: ' . mysql_error());
-            }
-            while($row = mysql_fetch_array($retval, MYSQL_ASSOC)){
-                echo 
-                   "<a href='catalog.php' ><img alt='featuredProduct' src='{$row['image']}' /></a>".
-                   "<h4>{$row['name']} only \${$row['price']}</h4>".
-                   "<p>{$row['description']} </p> ";
-            }
-            mysql_close($conn);
-          ?>
-        </div>
-        
-      </div>
-    </div>
-    <!-- Three-up Content Blocks -->
-    
-    <div class="row">
-      <h3>"Great News Everyone"</h3>
-
-      <div class="four columns">
-        <!-- <img src="img/responsive.png" alt="greatNews" /> -->
-        <img src="img/newsImages/responsive.png" alt="responsive" id="newsImage1" />
-        <h4>Our site is responsive!</h4>
-        <p>Check out our site on your smartphone! It automatically resizes everything to fit the width of the screen. It's pretty awesome if you ask me.
-           As before, we are still a bit aways from releasing all of our products. 
-          In the meantime checkout the products that we do have over at the <a href="catalog.php">Products Page.</a></p>  
-        <p><em>Posted: 01 Oct 2012 @ 23:49</em></p>
-      </div>
-
-      <div class="four columns">
-        <!-- <img src="img/html5.png" alt="finally" /> -->
-        <img src="img/newsImages/html5.png" alt="html5" id="newsImage2" />
-        <h4>We are finally live!</h4>
-        <p>After all these weeks we finally have the website up and running. 
-          It's been a long few months developing all the plugins, themes, fonts, and everything else we have to offer. 
-          Unfortunately only the plugins for Adobe Software are ready to go. 
-          It may be a month or two before all the products are ready to purchase</p>
-        <p><em>Posted: 25 Sept 2012 @ 16:32</em></p>
-      </div>
-      
-      <div class="four columns">
-        <!-- <img src="img/hey.jpg" alt="hey" /> -->
-        <img src="img/newsImages/hey.png" alt="hey" id="newsImage3" />
-        <h4>We're finally doing this!</h4>
-        <p>I know this won't be seen by anyone but the development team until the site is ready to launch but we are all excited.
-          Hey Dev Team, what's up? Come by my office and say, "Hello."</p>
-        <p><em>Posted: 21 Sept 2012 @ 13:31</em></p>
-      </div>
-    </div>
-    
-    <!-- Footer -->
-    <?php include('footer.php') ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Twixel Home - Greg Zanmiller</title>
+		<style type="text/css">
+			@import url("css/styles.css");
+		</style>
+		
+		<script src="js/script.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<div class="header">
+			<div class="top_header">
+				<div class="left_header">
+					<div class="logo">
+						<a href="home.php"><img src="img/Twixel_03.png" alt="Twixel" /></a>
+					</div>
+					<div class="search_bar">
+						<form action="#" method="get">
+							<input type="text" name="search_box" class="search_box" />
+							<input type="submit" name="submit" value="" class="search_btn" />
+						</form>
+					</div>
+				</div>
+				
+				<div class="right_header">
+					<?php 
+						if(!session_is_registered(login_input_email))
+						{
+							print "<div class='login_area'>
+								<a href='#' class='login_btn' onclick='show_login_home()'>Login</a>
+								<a href='#' class='signup' onclick='show_signup_home()'>Sign Up</a>
+							</div>";
+						}
+						else
+						{
+							print "<div class='user_area'>
+								<a href='client.php' class='username_btn'>".$first_name." ".$last_name."</a>
+								<a href='logout.php' class='logout'>Logout</a>
+							</div>";
+						}
+					?>
+				</div>
+				<div id="login_screen_home">
+					<form class="login_form" method="post" action="signin.php">
+						<div class="login">
+							<label class="login_label_email">Email: </label>
+							<input type="text" name="login_input_email" id="login_input_email" class="login_box" />
+						
+							<label class="login_label_password">Password: </label>
+							<input type="password" name="login_input_password" id="login_input_password" class="login_box" />
+						</div>
+						<div class="submit">
+							<input type="submit" value="Submit" class="login_button" />
+							<a href="#" class="signin_cancel" onclick="hide_login_home()">Cancel</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="menu_bar">
+			<ul>
+				<li><a href="home.php" class="link_background">Home</a></li>
+				<li><a href="catalog.php" class="link_background">Store</a></li>
+				<li><a href="contact.php" class="link_background">Contact</a></li>
+			</ul>
+			<a href="cart.php" class="cart_button"></a>
+		</div>
+		
+		<div id="home_area">	
+			<div id="signup_area_home">
+				<form action="signup.php" class="signup_form" method="post" onsubmit="validateData()">
+					<fieldset class="signup_fieldset">
+						<legend class="signup_legend">Sign Up</legend>
+					</fieldset>
+					
+					<div class="signup_section">
+						<label class="signup_label">First Name:</label>
+						<input type="text" name="first_name" class="signup_input" maxlength="30" />
+					</div>
+					<div class="signup_section">
+						<label class="signup_label">Last name:</label>
+						<input type="text" name="last_name" class="signup_input" maxlength="30" />
+					</div>
+					<div class="signup_section">
+						<label class="signup_label">Email:</label>
+						<input type="text" name="email" class="signup_input" maxlength="50" />
+					</div>
+					<div class="signup_section">
+						<label class="signup_label">Password:</label>
+						<input type="password" name="password" class="signup_input" maxlength="20" />
+					</div>
+					
+					<input type="submit" name="Submit" value="Submit" class="signup_submit" />
+					<a href="#" class="signup_cancel" onclick="hide_signup_home()">Cancel</a>
+				</form>
+			</div>
+			
+			<div id="home_body">
+				<div id="top_body">
+					<h1 id="home_body_header">Product of the Day</h1>
+					<a href="cart.php" id="home_cart_button">Add to Cart</a>
+					<div id="featured_picture">
+						<?
+							$connection = mysql_connect("sulley.cah.ucf.edu", "gr073607", "knights123!") or print "connection failed because ".mysql_error(); 
+							mysql_select_db("gr073607", $connection) or print "select failed because ".mysql_error();
+							
+							$myquery = "SELECT * FROM products WHERE id='1'";
+							$result = mysql_query($myquery);
+						
+						 	while($row = mysql_fetch_array($result)) {
+								print "<div id='featured_area'>";
+								print 	"<div id='featured_left'>
+											<img src='".$row['image']."' alt='featured_image' id='featured_image' />
+										</div>";
+								print 	"<div id='featured_right'>";
+								print 		"<h2 id='featured_name'>".$row['name'].": <br />$".$row['price']."</h2>";
+								print	 	"<p id='featured_description'>".$row['description']."</p>";
+								print	"</div>
+									  </div>";
+					 		} 
+						?>
+					</div>
+				</div>
+			</div>
+			
+			<div id="sidebar">
+				<h1 id="about_us">About Us</h1>
+				<p id="about_description">At Twixel, we try to provide one central location for all of your creative media needs. Whether you are an artist, graphic designer, videographer, photographer, musician, or anything in between, we have something for you. So go ahead and look around, we're sure to have everything you need.</p>
+			</div>
+		</div>
+			
+		<div class="footer">
+			<div class="disclaimer">
+				<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
+				<p>Designed by Greg Zanmiller</p>
+			</div>
+			<a href="admin.php" class="admin_link">Admin</a>
+		</div>
+	</body>
+</html>

@@ -1,140 +1,128 @@
-<?php 
-  include 'includes/header.php';
-  include 'mysql_connect.php';
+<?php
+	session_start();
+		
+	$connection = mysql_connect("localhost", "gr073607", "knights123!")or die("cannot connect"); 
+	mysql_select_db("gr073607", $connection)or die("cannot select DB");
+	
+	if(session_is_registered(login_input_email)){
+		
+		$email = $_SESSION['email'];
 
-$cart = $_SESSION['cart'];
-$action = $_GET['action'];
-switch ($action) {
-  case 'add':
-    if ($cart) {
-      $cart .= ','.$_GET['id'];
-    } else {
-      $cart = $_GET['id'];
-    }
-    break;
-  case 'delete':
-    if ($cart) {
-      $items = explode(',',$cart);
-      $newcart = '';
-      foreach ($items as $item) {
-        if ($_GET['id'] != $item) {
-          if ($newcart != '') {
-            $newcart .= ','.$item;
-          } else {
-            $newcart = $item;
-          }
-        }
-      }
-      $cart = $newcart;
-    }
-    break;
-  case 'update':
-  if ($cart) {
-    $newcart = '';
-    foreach ($_POST as $key=>$value) {
-      if (stristr($key,'qty')) {
-        $id = str_replace('qty','',$key);
-        $items = ($newcart != '') ? explode(',',$newcart) : explode(',',$cart);
-        $newcart = '';
-        foreach ($items as $item) {
-          if ($id != $item) {
-            if ($newcart != '') {
-              $newcart .= ','.$item;
-            } else {
-              $newcart = $item;
-            }
-          }
-        }
-        for ($i=1;$i<=$value;$i++) {
-          if ($newcart != '') {
-            $newcart .= ','.$id;
-          } else {
-            $newcart = $id;
-          }
-        }
-      }
-    }
-  }
-  $cart = $newcart;
-  break;
-}
-$_SESSION['cart'] = $cart;
+		$sql = "SELECT * FROM users WHERE email='$email'";
+		$result=mysql_query($sql);
 
-
+		while($row = mysql_fetch_array($result))
+		{
+			$first_name = $row['first_name'];
+			$last_name = $row['last_name'];
+		}
+	}
 ?>
-
-  <div class="spacer"></div>
-  <div class="row">
-    <div class="twelve columns">
-      <h1>Shopping Cart</h1>
-      <hr />
-    </div>
-  </div>
-    
-  <div class="row">
-      <div class="eight column">
-        <div class="entry">
-          <h3>Your Cart</h3>
-          <br/>
-          <p>Remove items from your cart or Check Out.</p>
-          
-          <?php
-
-          echo showCart();
-
-          /*$total = 0;
-          $output[] = '<form action="cart.php?action=update" method="post" id="cart">';
-          $output[] = '<table>';
-
-          foreach ($contents as $id=>$qty) {
-            $sql = "SELECT * FROM products WHERE id = '$id'";
-            $result = mysql_query( $sql, $connection );
-
-            $row = mysql_fetch_array($result, MYSQL_ASSOC);
-            extract($row);
-
-            //var_dump($result);
-            //if($result) echo 'There are Items here';
-            //else echo 'No Items';
-            
-             $name = $row['name'];
-             $price = $row['price'];
-
-            $output[] = '<tr>';
-            $output[] = '<td><a href="cart.php?action=delete&id='.$id.'" class="r">Remove</a></td>';
-            $output[] = '<td>'.$name.'</td>';
-            $output[] = '<td>&#36;'.$price.'</td>';
-            $output[] = '<td><input type="text" name="qty'.$id.'" value="'.$qty.'" size="3" maxlength="3" /></td>';
-            $output[] = '<td>&#36;'.($price * $qty).'</td>';
-            $total += $price * $qty;
-            $output[] = '</tr>';
-          }
-          $output[] = '</table>';
-          $output[] = '<p>Grand total: &#36;'.$total.'</p>';
-          $output[] = '<div><button type="submit">Update cart</button></div>';
-          $output[] = '</form>';
-          print_r($output);*/
-
-          ?>
-
-
-
-          <br />
-          <p>
-            <a class="feature-buy button radius" href="checkout.php" title="">Check Out</a> or
-            <a href="catalog.php" title="">Continue Shopping</a>
-          </p>
-
-
-        </div>
-        </div>
-    <!-- beginning of sidebar -->
-      <div class="four column">
-
-        <?php include "includes/sidebar.php"; ?>
-
-      </div>
-  </div>
-  
-  <!-- Footer -->
-  <?php include('footer.php') ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Twixel Cart - Greg Zanmiller</title>
+		<style type="text/css">
+			@import url("css/styles.css");
+		</style>
+		
+		<script src="js/script.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<div class="header">
+			<div class="top_header">
+				<div class="left_header">
+					<div class="logo">
+						<a href="home.php"><img src="img/Twixel_03.png" alt="Twixel" /></a>
+					</div>
+					<div class="search_bar">
+						<form action="#" method="get">
+							<input type="text" name="search_box" class="search_box" />
+							<input type="submit" name="submit" value="" class="search_btn" />
+						</form>
+					</div>
+				</div>
+				
+				<div class="right_header">
+					<?php 
+						if(session_is_registered(login_input_email))
+						{
+							print "<div class='login_area'>
+								<a href='#' class='login_btn' onclick='show_login_home()'>Login</a>
+								<a href='#' class='signup' onclick='show_signup_home()'>Sign Up</a>
+							</div>";
+						}
+						else
+						{
+							print "<div class='user_area'>
+								<a href='client.php' class='username_btn'>".$first_name." ".$last_name."</a>
+								<a href='logout.php' class='logout'>Logout</a>
+							</div>";
+						}
+					?>
+				</div>
+				<div id="login_screen_home">
+					<form class="login_form" method="post" action="signin.php">
+						<div class="login">
+							<label class="login_label_email">Email: </label>
+							<input type="text" name="login_input_email" id="login_input_email" class="login_box" />
+						
+							<label class="login_label_password">Password: </label>
+							<input type="password" name="login_input_password" id="login_input_password" class="login_box" />
+						</div>
+						<div class="submit">
+							<input type="submit" value="Submit" class="login_button" />
+							<a href="#" class="signin_cancel" onclick="hide_login_home()">Cancel</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="menu_bar">
+			<ul>
+				<li><a href="home.php" class="link_background">Home</a></li>
+				<li><a href="catalog.php" class="link_background">Store</a></li>
+				<li><a href="contact.php" class="link_background">Contact</a></li>
+			</ul>
+		</div>
+		
+		<div id="cart_body">
+			<div id="top_cart">
+				<p id="cart_header">Shopping Cart:</p>
+				<a href="checkout.php" id="checkout_btn">Checkout</a>
+			</div>
+			
+			<div id="cart_items">
+				<?
+					$connection = mysql_connect("localhost", "gr073607", "knights123!") or print "connection failed because ".mysql_error(); 
+					mysql_select_db("gr073607", $connection) or print "select failed because ".mysql_error();
+					
+					$myquery = "SELECT * FROM products WHERE id='1'";
+					$result = mysql_query($myquery);
+				
+				 	while($row = mysql_fetch_array($result)) {
+						print "<div class='cart_item'>";
+						print 	"<div id='cart_left'>
+									<img src='".$row['image']."' alt='cart_image' id='cart_image' />
+								</div>";
+						print 	"<div id='cart_right'>";
+						print 		"<p id='cart_name'>".$row['name'].": <br />$".$row['price']."</p>";
+						print	"</div>
+							  </div>";
+			 		} 
+				?>
+			</div>
+		</div>
+			
+		<div class="footer">
+			<div class="disclaimer">
+				<p>This site is not official and is an assignment for a UCF Digital Media course.</p>
+				<p>Designed by Greg Zanmiller</p>
+			</div>
+			<a href="admin.php" class="admin_link">Admin</a>
+		</div>
+	</body>
+</html>
